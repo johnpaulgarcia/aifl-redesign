@@ -1,4 +1,4 @@
-const names={1:'Clear & Confident',2:'Editorial Academy',3:'Course Navigator',4:'Community Focus'};
+const names={1:'Clear & Confident',2:'Editorial Academy',3:'Course Navigator',4:'Community Focus',5:'Campus Journal',6:'Guided Pathway',7:'Bold Prospectus',8:'Course Atlas'};
 const choice=document.querySelector('#choice'),feedback=document.querySelector('#feedback'),status=document.querySelector('#choice-status');
 function save(){try{localStorage.setItem('aifl-design-review',JSON.stringify({choice:choice.value,feedback:feedback.value}))}catch{}}
 function update(){document.querySelectorAll('[data-choose]').forEach(button=>{const selected=button.dataset.choose===choice.value;button.setAttribute('aria-pressed',String(selected));button.textContent=selected?'Selected option 0'+button.dataset.choose:'Choose option 0'+button.dataset.choose});save()}

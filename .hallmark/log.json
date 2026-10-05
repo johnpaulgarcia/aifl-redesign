@@ -1,6 +1,34 @@
 [
   {
     "date": "2026-10-06",
+    "macrostructure": "Spatial Bento",
+    "theme": "Course Atlas",
+    "brief": "AIFL design option 8",
+    "enrichment": "none"
+  },
+  {
+    "date": "2026-10-06",
+    "macrostructure": "Conversational catalogue",
+    "theme": "Bold Prospectus",
+    "brief": "AIFL design option 7",
+    "enrichment": "none"
+  },
+  {
+    "date": "2026-10-06",
+    "macrostructure": "Narrative Workflow",
+    "theme": "Guided Pathway",
+    "brief": "AIFL design option 6",
+    "enrichment": "none"
+  },
+  {
+    "date": "2026-10-06",
+    "macrostructure": "Ecosystem Index",
+    "theme": "Campus Journal",
+    "brief": "AIFL design option 5",
+    "enrichment": "Existing photograph"
+  },
+  {
+    "date": "2026-10-06",
     "macrostructure": "Photographic, compact",
     "theme": "Community Focus",
     "brief": "AIFL client design option 4",
