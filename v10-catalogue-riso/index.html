@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL — Australian Institute of Flexible Learning · 2026 Course Catalogue</title>
+<meta name="description" content="Fifteen flexible courses in health, community services and business. Study anywhere in Australia with AIFL — Melbourne educators since 2005. Call 1300 854 987.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Space+Grotesk:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · variation: 10 · macrostructure: Catalogue · theme: Riso · nav: N13 · footer: Ft1 · tone: playful risograph print */
+:root {
+  --color-paper:   oklch(94% 0.028 80);
+  --color-paper-2: oklch(90% 0.04 75);
+  --color-paper-3: oklch(86% 0.05 70);
+  --color-ink:     oklch(24% 0.035 255);
+  --color-ink-2:   oklch(35% 0.03 250);
+  --color-muted:   oklch(44% 0.028 250);
+  --color-rule:    oklch(76% 0.03 70);
+  --color-blue:    oklch(50% 0.12 235);
+  --color-pink:    oklch(65% 0.24 5);
+  --color-yellow:  oklch(88% 0.16 95);
+  --color-focus:   oklch(42% 0.12 235);
+  --color-scrim:   oklch(24% 0.035 255 / 0.5);
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+  --font-body:    "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5625rem;
+  --text-xl: 1.9531rem;
+  --text-2xl: 2.4414rem;
+  --text-display: clamp(2.5rem, 6vw + 0.5rem, 5rem);
+
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+  --space-3xl: 7rem;
+
+  --dur-1: 160ms;
+  --dur-2: 240ms;
+  --dur-3: 360ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-yellow); color: var(--color-ink); }
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.wrap {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+section { scroll-margin-top: 5.5rem; }
+
+/* ---------- skip link ---------- */
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 900;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-decoration: none;
+}
+.skip:focus-visible { top: 1rem; }
+
+/* ---------- type ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-base);
+  line-height: 1.2;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out),
+              background-color var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
+}
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+.btn:active { transform: translate(0, 0); box-shadow: 0 0 0 var(--color-ink); }
+.btn[disabled], .btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn--fill {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+.btn--fill:hover { box-shadow: 4px 4px 0 var(--color-pink); }
+.btn--fill:active { box-shadow: 0 0 0 var(--color-pink); }
+.btn--sm { min-height: 44px; padding: 0.4rem 1rem; font-size: var(--text-sm); }
+
+/* ---------- nav (N13) ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 600;
+  background: var(--color-paper);
+  border-bottom: 2px solid var(--color-ink);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: 64px;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
+}
+.nav__brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-md);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  padding: 0.5rem 0;
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-left: auto;
+}
+.nav__link {
+  font-weight: 500;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  padding: 0.6rem 0.25rem;
+  background-image: linear-gradient(var(--color-pink), var(--color-pink));
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  background-position: 0 90%;
+  transition: background-size var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
+}
+.nav__link:hover { background-size: 100% 3px; color: var(--color-blue); }
+
+.searchpill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.55rem 0 0.85rem;
+  background: var(--color-paper-2);
+  border: 2px solid var(--color-ink);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
+}
+.searchpill:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--color-ink); }
+.searchpill:active { transform: translate(0, 0); box-shadow: none; }
+.searchpill__kbd { display: flex; gap: 2px; }
+kbd {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--color-rule);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--color-paper);
+  color: var(--color-ink-2);
+}
+@media (max-width: 44rem) {
+  .nav__links .nav__link { display: none; }
+  .searchpill__text, .searchpill__kbd { display: none; }
+  .searchpill { padding: 0 0.7rem; }
+}
+
+/* ---------- cmdk modal ---------- */
+.cmdk {
+  position: fixed;
+  inset: 0;
+  z-index: 700;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-2) var(--ease-out), visibility 0s linear var(--dur-2);
+}
+.cmdk.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+.cmdk__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-scrim);
+}
+.cmdk__panel {
+  position: absolute;
+  top: 12vh;
+  left: 50%;
+  width: min(36rem, calc(100vw - 2rem));
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-paper);
+  border: 2px solid var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-pink);
+  transform: translateX(-50%) translateY(-8px);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.cmdk.is-open .cmdk__panel { transform: translateX(-50%) translateY(0); }
+.cmdk__field {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--color-ink);
+}
+.cmdk__field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+}
+.cmdk__field input:focus { outline: none; }
+.cmdk__field:focus-within { box-shadow: inset 0 0 0 3px var(--color-focus); }
+.cmdk__field input::placeholder { color: var(--color-muted); }
+.cmdk__results {
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+.cmdk__set[hidden] { display: none; }
+.cmdk__group {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding: 0.6rem 0.6rem 0.3rem;
+}
+.cmdk__item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  min-height: 44px;
+  padding: 0.55rem 0.6rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cmdk__item .code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+.cmdk__item.is-active { background: var(--color-yellow); }
+.cmdk__item[hidden] { display: none; }
+.cmdk__empty {
+  padding: var(--space-md) 0.6rem;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+.cmdk__empty[hidden] { display: none; }
+.cmdk__foot {
+  display: flex;
+  gap: var(--space-md);
+  padding: 0.6rem 1rem;
+  border-top: 2px solid var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+@media (max-width: 40rem) {
+  .cmdk__panel {
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: none;
+    height: 100dvh;
+    box-shadow: none;
+    transform: translateY(12px);
+  }
+  .cmdk.is-open .cmdk__panel { transform: translateY(0); }
+  .cmdk__foot { display: none; }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  padding: var(--space-2xl) 0 var(--space-xl);
+  text-align: center;
+}
+.hero .mono { color: var(--color-muted); }
+.hero__mark {
+  font-size: clamp(4.5rem, 20vw, 12rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  margin: var(--space-md) 0 var(--space-sm);
+  text-shadow: 0.035em 0.035em 0 var(--color-pink), -0.03em -0.025em 0 var(--color-yellow);
+}
+.hero__tagline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+.hero__sub {
+  max-width: 46ch;
+  margin: var(--space-md) auto 0;
+  color: var(--color-ink-2);
+}
+.hero__plate {
+  margin: var(--space-xl) auto;
+  max-width: 44rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper-2);
+  padding: var(--space-sm);
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+/* ---------- catalogue ---------- */
+.catalogue { padding: var(--space-xl) 0 var(--space-2xl); }
+.catalogue__head { text-align: center; margin-bottom: var(--space-xl); }
+.catalogue__head h2 { font-size: var(--text-display); }
+.catalogue__head .mono { color: var(--color-muted); margin-top: var(--space-sm); }
+
+.band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.15rem var(--space-md);
+  border-top: 2px solid var(--color-ink);
+  padding: var(--space-sm) 0;
+  margin: var(--space-xl) 0 var(--space-lg);
+}
+.band:first-of-type { margin-top: 0; }
+.band h3 { font-size: var(--text-lg); }
+.band .mono { color: var(--color-muted); white-space: nowrap; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg) var(--space-md);
+}
+@media (max-width: 56rem) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 36rem) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+.course {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper);
+  transition: transform var(--dur-2) var(--ease-out), box-shadow var(--dur-2) var(--ease-out);
+}
+.course:hover, .course:focus-within {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--color-pink);
+}
+.course__no {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  padding: 0.15rem 0.45rem;
+}
+.course__print {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-paper-2);
+  border-bottom: 2px solid var(--color-ink);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.course__print::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-ink) 1px, transparent 1.4px);
+  background-size: 9px 9px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.course__print svg { width: 78%; height: auto; }
+.course:nth-child(odd) .course__print svg { transform: rotate(-2deg); }
+.course:nth-child(even) .course__print svg { transform: rotate(1.5deg); }
+.course__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: var(--space-md);
+  flex: 1;
+}
+.course__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: normal;
+  font-size: var(--text-md);
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.course__code {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--color-blue);
+  font-variant-numeric: tabular-nums;
+}
+.course__meta { font-size: var(--text-sm); color: var(--color-muted); }
+.course__go {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+.course__go a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ink);
+  background-image: linear-gradient(var(--color-blue), var(--color-blue));
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  background-position: 0 78%;
+  transition: color var(--dur-1) var(--ease-out), background-size var(--dur-2) var(--ease-out);
+}
+.course__go a:hover { color: var(--color-blue); background-size: 100% 6px; }
+.stamp {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  transform: rotate(-6deg);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-pink);
+  border: 2px dashed var(--color-pink);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  background: var(--color-paper);
+}
+
+/* ---------- why ---------- */
+.why { padding: 0 0 var(--space-2xl); }
+.why h2 { font-size: var(--text-display); text-align: center; margin-bottom: var(--space-xl); }
+.facts { border-top: 2px solid var(--color-ink); max-width: 56rem; margin-inline: auto; }
+.fact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+.fact h3 { font-size: var(--text-md); }
+.fact p { color: var(--color-ink-2); max-width: 60ch; }
+@media (max-width: 40rem) {
+  .fact { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
+}
+
+/* ---------- e-book ---------- */
+.ebook { padding: 0 0 var(--space-2xl); }
+.ebook__plate {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-xl);
+  max-width: 56rem;
+  margin-inline: auto;
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper-2);
+  box-shadow: 8px 8px 0 var(--color-pink);
+  padding: var(--space-xl);
+}
+.book {
+  position: relative;
+  width: 11rem;
+  aspect-ratio: 3 / 4;
+  background: var(--color-yellow);
+  border: 2px solid var(--color-ink);
+  box-shadow: 5px 5px 0 var(--color-blue);
+  transform: rotate(-3deg);
+  padding: 1rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+.book::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0.55rem;
+  width: 2px;
+  background: var(--color-ink);
+  opacity: 0.35;
+}
+.book::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--color-ink) 1px, transparent 1.4px);
+  background-size: 8px 8px;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.book__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+  padding-left: 0.55rem;
+}
+.book__foot {
+  margin-top: auto;
+  padding-left: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ebook__copy h2 { font-size: var(--text-2xl); margin-bottom: var(--space-sm); }
+.ebook__copy p { color: var(--color-ink-2); max-width: 46ch; margin-bottom: var(--space-md); }
+.ebook__note { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-muted); margin-top: var(--space-sm); letter-spacing: 0.06em; text-transform: uppercase; }
+@media (max-width: 44rem) {
+  .ebook__plate { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; padding: var(--space-lg) var(--space-md); }
+  .ebook__copy p { margin-inline: auto; }
+}
+
+/* ---------- enquire ---------- */
+.enquire { padding: 0 0 var(--space-3xl); text-align: center; }
+.enquire h2 { font-size: var(--text-display); margin-bottom: var(--space-sm); }
+.enquire p { max-width: 44ch; margin: 0 auto var(--space-lg); color: var(--color-ink-2); }
+.enquire__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-sm); }
+
+/* ---------- footer (Ft1) ---------- */
+.foot {
+  border-top: 2px solid var(--color-ink);
+  background: var(--color-paper-2);
+  padding: var(--space-2xl) 0 var(--space-xl);
+  text-align: center;
+}
+.foot__mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-2xl);
+  text-transform: uppercase;
+  text-shadow: 0.06em 0.06em 0 var(--color-yellow);
+}
+.foot__tag {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.35rem;
+}
+.foot__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem var(--space-md);
+  margin-top: var(--space-md);
+  list-style: none;
+}
+.foot__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-pink), var(--color-pink));
+  background-repeat: no-repeat;
+  background-size: 0% 3px;
+  background-position: 0 85%;
+  transition: background-size var(--dur-2) var(--ease-out), color var(--dur-2) var(--ease-out);
+}
+.foot__links a:hover { background-size: 100% 3px; color: var(--color-blue); }
+.foot__meta {
+  margin-top: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 150ms !important;
+    transition-property: opacity !important;
+  }
+  .btn:hover, .course:hover, .course:focus-within, .searchpill:hover { transform: none; }
+  .cmdk__panel, .cmdk.is-open .cmdk__panel { transform: translateX(-50%); }
+  @media (max-width: 40rem) {
+    .cmdk__panel, .cmdk.is-open .cmdk__panel { transform: none; }
+  }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to the catalogue</a>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top" aria-label="AIFL — home">AIFL</a>
+    <button class="searchpill" id="searchpill" aria-haspopup="dialog" aria-label="Search courses (Command K)">
+      <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg>
+      <span class="searchpill__text">Search courses…</span>
+      <span class="searchpill__kbd" aria-hidden="true"><kbd>⌘</kbd><kbd>K</kbd></span>
+    </button>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="#catalogue">Catalogue</a>
+      <a class="nav__link" href="#why">Why AIFL</a>
+      <a class="nav__link" href="#ebook">Free e-book</a>
+      <a class="btn btn--fill btn--sm" href="tel:1300854987">Enquire</a>
+    </nav>
+  </div>
+</header>
+
+<div class="cmdk" id="cmdk" aria-hidden="true">
+  <div class="cmdk__backdrop" data-close></div>
+  <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Search courses">
+    <div class="cmdk__field">
+      <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/></svg>
+      <input id="cmdk-input" type="text" placeholder="Search courses, codes, pages…" autocomplete="off" aria-label="Search courses, codes, pages">
+      <kbd>esc</kbd>
+    </div>
+    <div class="cmdk__results" id="cmdk-results">
+      <div class="cmdk__set">
+        <p class="cmdk__group">Pages</p>
+        <a class="cmdk__item" href="#catalogue" data-search="browse the catalogue all courses"><span>Browse the catalogue</span><span class="code">15 courses</span></a>
+        <a class="cmdk__item" href="#why" data-search="why aifl about flexible support funding skills first"><span>Why AIFL</span><span class="code">since 2005</span></a>
+        <a class="cmdk__item" href="#ebook" data-search="free e-book ebook motivation positive thinking download"><span>Free e-book</span><span class="code">motivation</span></a>
+        <a class="cmdk__item" href="tel:1300854987" data-search="call phone enquire contact 1300"><span>Call 1300 854 987</span><span class="code">tel</span></a>
+        <a class="cmdk__item" href="mailto:admin@aifl.edu.au" data-search="email enquire contact admin"><span>Email admin@aifl.edu.au</span><span class="code">mail</span></a>
+      </div>
+      <div class="cmdk__set">
+        <p class="cmdk__group">Health &amp; Care</p>
+        <a class="cmdk__item" href="#c-chc43315" data-search="certificate iv in mental health chc43315"><span>Certificate IV in Mental Health</span><span class="code">CHC43315</span></a>
+        <a class="cmdk__item" href="#c-chc43015" data-search="certificate iv in ageing support chc43015 skills first funded"><span>Certificate IV in Ageing Support</span><span class="code">CHC43015</span></a>
+        <a class="cmdk__item" href="#c-chc33015" data-search="certificate iii in individual support chc33015"><span>Certificate III in Individual Support</span><span class="code">CHC33015</span></a>
+        <a class="cmdk__item" href="#c-hlt43015" data-search="certificate iv in allied health assistance hlt43015"><span>Certificate IV in Allied Health Assistance</span><span class="code">HLT43015</span></a>
+        <a class="cmdk__item" href="#c-hlt33015" data-search="certificate iii in allied health assistance hlt33015"><span>Certificate III in Allied Health Assistance</span><span class="code">HLT33015</span></a>
+        <a class="cmdk__item" href="#c-hlt23215" data-search="certificate ii in health support services hlt23215"><span>Certificate II in Health Support Services</span><span class="code">HLT23215</span></a>
+      </div>
+      <div class="cmdk__set">
+        <p class="cmdk__group">Community Services</p>
+        <a class="cmdk__item" href="#c-chc52015" data-search="diploma of community services chc52015"><span>Diploma of Community Services</span><span class="code">CHC52015</span></a>
+        <a class="cmdk__item" href="#c-chc32015" data-search="certificate iii in community services chc32015"><span>Certificate III in Community Services</span><span class="code">CHC32015</span></a>
+        <a class="cmdk__item" href="#c-chc22015" data-search="certificate ii in community services chc22015"><span>Certificate II in Community Services</span><span class="code">CHC22015</span></a>
+        <a class="cmdk__item" href="#c-chc43215" data-search="certificate iv in alcohol and other drugs chc43215 aod"><span>Certificate IV in Alcohol and Other Drugs</span><span class="code">CHC43215</span></a>
+        <a class="cmdk__item" href="#c-chc14015" data-search="certificate i in active volunteering chc14015"><span>Certificate I in Active Volunteering</span><span class="code">CHC14015</span></a>
+      </div>
+      <div class="cmdk__set">
+        <p class="cmdk__group">Business &amp; Short Courses</p>
+        <a class="cmdk__item" href="#c-bsb30115" data-search="certificate iii in business bsb30115"><span>Certificate III in Business</span><span class="code">BSB30115</span></a>
+        <a class="cmdk__item" href="#c-bsb31115" data-search="certificate iii in business administration medical bsb31115"><span>Certificate III in Business Administration (Medical)</span><span class="code">BSB31115</span></a>
+        <a class="cmdk__item" href="#c-hltaid003" data-search="provide first aid hltaid003 short course"><span>Provide First Aid</span><span class="code">HLTAID003</span></a>
+        <a class="cmdk__item" href="#c-hltaid001" data-search="provide cpr hltaid001 short course"><span>Provide CPR</span><span class="code">HLTAID001</span></a>
+      </div>
+      <p class="cmdk__empty" id="cmdk-empty" hidden>Nothing in the index matches that — try a course code like “CHC”.</p>
+    </div>
+    <div class="cmdk__foot">
+      <span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="hero wrap" id="top" aria-labelledby="hero-title">
+    <p class="mono">Fifteen courses · 2026 catalogue · Melbourne VIC — printed for all of Australia</p>
+    <h1 class="hero__mark" id="hero-title">AIFL<span class="vh"> — Australian Institute of Flexible Learning</span></h1>
+    <p class="hero__tagline">Education. Empowered. Endeavoured.</p>
+    <p class="hero__sub">Flexible, supported training in health, community services and business — study anywhere in Australia, at any age, at any stage. Passionate educators since 2005.</p>
+    <div class="hero__plate" aria-hidden="true">
+      <svg viewBox="0 0 880 190" width="100%" role="presentation">
+        <g style="mix-blend-mode:multiply">
+          <circle cx="430" cy="95" r="70" style="fill:var(--color-yellow)"/>
+          <circle cx="472" cy="88" r="70" style="fill:var(--color-pink)"/>
+        </g>
+        <circle cx="451" cy="92" r="70" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="4 6"/>
+        <path d="M60 150 Q170 40 280 150" fill="none" style="stroke:var(--color-blue)" stroke-width="10"/>
+        <path d="M60 160 Q170 50 280 160" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5"/>
+        <g style="fill:var(--color-pink)">
+          <rect x="620" y="55" width="34" height="90"/>
+          <rect x="664" y="30" width="34" height="115" style="fill:var(--color-blue)"/>
+          <rect x="708" y="80" width="34" height="65" style="fill:var(--color-yellow)"/>
+        </g>
+        <path d="M620 152 h122" style="stroke:var(--color-ink)" stroke-width="2.5"/>
+        <g fill="none" style="stroke:var(--color-ink)" stroke-width="1.5">
+          <circle cx="30" cy="28" r="8"/><path d="M30 16v24M18 28h24"/>
+          <circle cx="850" cy="162" r="8"/><path d="M850 150v24M838 162h24"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero__actions">
+      <a class="btn btn--fill" href="#catalogue">Browse the catalogue</a>
+      <a class="btn" href="tel:1300854987">Call 1300 854 987</a>
+    </div>
+  </section>
+
+  <section class="catalogue wrap" id="catalogue" aria-labelledby="catalogue-title">
+    <header class="catalogue__head">
+      <h2 id="catalogue-title">The 2026 catalogue</h2>
+      <p class="mono">Fifteen specimens · enquire by email or phone · funded places on selected courses</p>
+    </header>
+
+    <div class="band">
+      <h3 id="band-health">Health &amp; Care</h3>
+      <p class="mono">No. 01–06 · six specimens</p>
+    </div>
+    <div class="grid">
+      <article class="course" id="c-chc43315">
+        <span class="course__no">No. 01</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="86" cy="72" r="44" style="fill:var(--color-yellow)"/><circle cx="114" cy="76" r="44" style="fill:var(--color-pink)"/></g><path d="M100 46v52M74 72h52" style="stroke:var(--color-ink)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate IV in Mental Health</h4>
+          <p class="course__code">CHC43315</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC43315">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc43015">
+        <span class="course__no">No. 02</span>
+        <span class="stamp">Skills First funded</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="80" cy="70" r="40" style="fill:var(--color-pink)"/><circle cx="120" cy="78" r="40" style="fill:var(--color-yellow)"/></g><path d="M100 48v50M76 73h48" style="stroke:var(--color-ink)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate IV in Ageing Support</h4>
+          <p class="course__code">CHC43015</p>
+          <p class="course__meta">12 months · Skills First funded</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC43015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc33015">
+        <span class="course__no">No. 03</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="88" cy="76" r="46" style="fill:var(--color-blue)"/><circle cx="116" cy="70" r="46" style="fill:var(--color-yellow)"/></g><path d="M100 48v52M74 74h52" style="stroke:var(--color-paper)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate III in Individual Support</h4>
+          <p class="course__code">CHC33015</p>
+          <p class="course__meta">60 weeks</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC33015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-hlt43015">
+        <span class="course__no">No. 04</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="84" cy="74" r="42" style="fill:var(--color-pink)"/><circle cx="118" cy="74" r="42" style="fill:var(--color-blue)"/></g><path d="M101 50v50M77 74h48" style="stroke:var(--color-ink)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate IV in Allied Health Assistance</h4>
+          <p class="course__code">HLT43015</p>
+          <p class="course__meta">69 weeks</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20HLT43015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-hlt33015">
+        <span class="course__no">No. 05</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="90" cy="70" r="44" style="fill:var(--color-yellow)"/><circle cx="112" cy="82" r="44" style="fill:var(--color-blue)"/></g><path d="M100 50v50M76 75h48" style="stroke:var(--color-ink)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate III in Allied Health Assistance</h4>
+          <p class="course__code">HLT33015</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20HLT33015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-hlt23215">
+        <span class="course__no">No. 06</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="86" cy="78" r="42" style="fill:var(--color-blue)"/><circle cx="116" cy="68" r="42" style="fill:var(--color-pink)"/></g><path d="M100 52v48M78 76h44" style="stroke:var(--color-paper)" stroke-width="12"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate II in Health Support Services</h4>
+          <p class="course__code">HLT23215</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20HLT23215">Enquire →</a></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="band">
+      <h3 id="band-community">Community Services</h3>
+      <p class="mono">No. 07–11 · five specimens</p>
+    </div>
+    <div class="grid">
+      <article class="course" id="c-chc52015">
+        <span class="course__no">No. 07</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="78" cy="62" r="36" style="fill:var(--color-blue)"/><circle cx="122" cy="62" r="36" style="fill:var(--color-pink)"/><circle cx="100" cy="96" r="36" style="fill:var(--color-yellow)"/></g><circle cx="100" cy="76" r="60" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="3 5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Diploma of Community Services</h4>
+          <p class="course__code">CHC52015</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC52015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc32015">
+        <span class="course__no">No. 08</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="76" cy="66" r="36" style="fill:var(--color-pink)"/><circle cx="124" cy="66" r="36" style="fill:var(--color-yellow)"/><circle cx="100" cy="98" r="36" style="fill:var(--color-blue)"/></g><circle cx="100" cy="78" r="60" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="3 5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate III in Community Services</h4>
+          <p class="course__code">CHC32015</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC32015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc22015">
+        <span class="course__no">No. 09</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="80" cy="64" r="36" style="fill:var(--color-yellow)"/><circle cx="120" cy="64" r="36" style="fill:var(--color-blue)"/><circle cx="100" cy="96" r="36" style="fill:var(--color-pink)"/></g><circle cx="100" cy="76" r="60" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="3 5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate II in Community Services</h4>
+          <p class="course__code">CHC22015</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC22015">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc43215">
+        <span class="course__no">No. 10</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="78" cy="60" r="36" style="fill:var(--color-blue)"/><circle cx="122" cy="68" r="36" style="fill:var(--color-yellow)"/><circle cx="98" cy="98" r="36" style="fill:var(--color-pink)"/></g><circle cx="99" cy="77" r="60" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="3 5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate IV in Alcohol and Other Drugs</h4>
+          <p class="course__code">CHC43215</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC43215">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-chc14015">
+        <span class="course__no">No. 11</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><circle cx="80" cy="68" r="36" style="fill:var(--color-pink)"/><circle cx="122" cy="62" r="36" style="fill:var(--color-blue)"/><circle cx="102" cy="98" r="36" style="fill:var(--color-yellow)"/></g><circle cx="101" cy="77" r="60" fill="none" style="stroke:var(--color-ink)" stroke-width="2.5" stroke-dasharray="3 5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate I in Active Volunteering</h4>
+          <p class="course__code">CHC14015</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20CHC14015">Enquire →</a></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="band">
+      <h3 id="band-business">Business</h3>
+      <p class="mono">No. 12–13 · two specimens</p>
+    </div>
+    <div class="grid">
+      <article class="course" id="c-bsb30115">
+        <span class="course__no">No. 12</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><rect x="52" y="86" width="28" height="42" style="fill:var(--color-blue)"/><rect x="86" y="60" width="28" height="68" style="fill:var(--color-pink)"/><rect x="120" y="38" width="28" height="90" style="fill:var(--color-yellow)"/></g><path d="M44 134 h112" style="stroke:var(--color-ink)" stroke-width="2.5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate III in Business</h4>
+          <p class="course__code">BSB30115</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20BSB30115">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-bsb31115">
+        <span class="course__no">No. 13</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><rect x="52" y="76" width="28" height="52" style="fill:var(--color-pink)"/><rect x="86" y="48" width="28" height="80" style="fill:var(--color-yellow)"/><rect x="120" y="66" width="28" height="62" style="fill:var(--color-blue)"/></g><path d="M44 134 h112" style="stroke:var(--color-ink)" stroke-width="2.5"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Certificate III in Business Administration (Medical)</h4>
+          <p class="course__code">BSB31115</p>
+          <p class="course__meta">Flexible delivery</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20BSB31115">Enquire →</a></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="band">
+      <h3 id="band-short">Short Courses</h3>
+      <p class="mono">No. 14–15 · two specimens</p>
+    </div>
+    <div class="grid">
+      <article class="course" id="c-hltaid003">
+        <span class="course__no">No. 14</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><rect x="66" y="41" width="68" height="68" style="fill:var(--color-pink)"/><rect x="66" y="41" width="68" height="68" style="fill:var(--color-pink)" transform="rotate(45 100 75)"/><circle cx="100" cy="75" r="24" style="fill:var(--color-yellow)"/></g><circle cx="100" cy="75" r="8" style="fill:var(--color-ink)"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Provide First Aid</h4>
+          <p class="course__code">HLTAID003</p>
+          <p class="course__meta">Short course</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20HLTAID003">Enquire →</a></p>
+        </div>
+      </article>
+      <article class="course" id="c-hltaid001">
+        <span class="course__no">No. 15</span>
+        <div class="course__print" aria-hidden="true">
+          <svg viewBox="0 0 200 150"><g style="mix-blend-mode:multiply"><rect x="66" y="41" width="68" height="68" style="fill:var(--color-blue)"/><rect x="66" y="41" width="68" height="68" style="fill:var(--color-blue)" transform="rotate(45 100 75)"/><circle cx="100" cy="75" r="24" style="fill:var(--color-yellow)"/></g><circle cx="100" cy="75" r="8" style="fill:var(--color-paper)"/></svg>
+        </div>
+        <div class="course__body">
+          <h4 class="course__name">Provide CPR</h4>
+          <p class="course__code">HLTAID001</p>
+          <p class="course__meta">Short course</p>
+          <p class="course__go"><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20HLTAID001">Enquire →</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="why wrap" id="why" aria-labelledby="why-title">
+    <h2 id="why-title">Why AIFL</h2>
+    <div class="facts">
+      <div class="fact">
+        <h3>Since 2005</h3>
+        <p>Two decades of empowering people through education. Learn at any age, at any stage — we’ve been doing this long enough to know what support actually looks like.</p>
+      </div>
+      <div class="fact">
+        <h3>Flexible by design</h3>
+        <p>Study options that fit around work and life, delivered anywhere in Australia — with full student support from first enquiry to final assessment.</p>
+      </div>
+      <div class="fact">
+        <h3>Practitioners as trainers</h3>
+        <p>Your trainers are experienced industry practitioners across health, community services, mental health, ageing support, alcohol and other drugs, and business.</p>
+      </div>
+      <div class="fact">
+        <h3>Funding pathways</h3>
+        <p>Skills First funded places (Victoria) on selected courses, VET in Schools programs, and subsidised traineeships. Call us and we’ll walk through what you’re eligible for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ebook wrap" id="ebook" aria-labelledby="ebook-title">
+    <div class="ebook__plate">
+      <div class="book" aria-hidden="true">
+        <p class="book__title">Motivation &amp; Positive Thinking</p>
+        <p class="book__foot">AIFL Press · Free</p>
+      </div>
+      <div class="ebook__copy">
+        <h2 id="ebook-title">The free e-book</h2>
+        <p>A short read on motivation and positive thinking — our gift to anyone weighing up a return to study. Tell us where to send it and it’s yours.</p>
+        <a class="btn btn--fill" href="mailto:admin@aifl.edu.au?subject=Free%20e-book%20please">Get the free e-book</a>
+        <p class="ebook__note">No card. No catch. Just email.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="enquire wrap" id="enquire" aria-labelledby="enquire-title">
+    <h2 id="enquire-title">Talk to a human</h2>
+    <p>Questions about a course, funding, or where to start? Call or email — a real person answers, Monday to Friday.</p>
+    <div class="enquire__actions">
+      <a class="btn btn--fill" href="tel:1300854987">Call 1300 854 987</a>
+      <a class="btn" href="mailto:admin@aifl.edu.au">Email admin@aifl.edu.au</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__mark">AIFL</p>
+    <p class="foot__tag">Education. Empowered. Endeavoured.</p>
+    <ul class="foot__links">
+      <li><a href="tel:1300854987">1300 854 987</a></li>
+      <li><a href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a></li>
+      <li><a href="#top">Back to top ↑</a></li>
+    </ul>
+    <p class="foot__meta">Melbourne VIC · © 2026 J J Endeavours Pty Ltd</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var cmdk = document.getElementById('cmdk');
+  var pill = document.getElementById('searchpill');
+  var input = document.getElementById('cmdk-input');
+  var results = document.getElementById('cmdk-results');
+  var empty = document.getElementById('cmdk-empty');
+  var items = Array.prototype.slice.call(results.querySelectorAll('.cmdk__item'));
+  var sets = Array.prototype.slice.call(results.querySelectorAll('.cmdk__set'));
+
+  function visibleItems() {
+    return items.filter(function (it) { return !it.hidden; });
+  }
+
+  function setActive(next) {
+    items.forEach(function (it) { it.classList.remove('is-active'); });
+    if (next) {
+      next.classList.add('is-active');
+      next.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function filter(q) {
+    q = q.trim().toLowerCase();
+    var anyVisible = false;
+    items.forEach(function (it) {
+      var show = !q || it.getAttribute('data-search').indexOf(q) !== -1;
+      it.hidden = !show;
+      if (show) anyVisible = true;
+    });
+    sets.forEach(function (set) {
+      var visible = Array.prototype.some.call(
+        set.querySelectorAll('.cmdk__item'),
+        function (it) { return !it.hidden; }
+      );
+      set.hidden = !visible;
+    });
+    empty.hidden = anyVisible;
+    setActive(visibleItems()[0] || null);
+  }
+
+  function open() {
+    cmdk.classList.add('is-open');
+    cmdk.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    input.value = '';
+    filter('');
+    window.requestAnimationFrame(function () { input.focus(); });
+  }
+
+  function close() {
+    cmdk.classList.remove('is-open');
+    cmdk.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    pill.focus();
+  }
+
+  function isOpen() { return cmdk.classList.contains('is-open'); }
+
+  pill.addEventListener('click', open);
+
+  document.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (isOpen()) { close(); } else { open(); }
+    } else if (e.key === 'Escape' && isOpen()) {
+      close();
+    }
+  });
+
+  cmdk.addEventListener('click', function (e) {
+    if (e.target.hasAttribute('data-close')) close();
+  });
+
+  results.addEventListener('click', function (e) {
+    var item = e.target.closest('.cmdk__item');
+    if (item) close();
+  });
+
+  input.addEventListener('input', function () { filter(input.value); });
+
+  input.addEventListener('keydown', function (e) {
+    var visible = visibleItems();
+    if (!visible.length) return;
+    var current = results.querySelector('.cmdk__item.is-active');
+    var index = visible.indexOf(current);
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActive(visible[(index + 1) % visible.length]);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive(visible[(index - 1 + visible.length) % visible.length]);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      (current || visible[0]).click();
+    }
+  });
+
+  cmdk.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    var focusables = [input].concat(visibleItems());
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

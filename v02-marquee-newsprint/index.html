@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIFL — Australian Institute of Flexible Learning</title>
+<meta name="description" content="Flexible, supported training across Australia since 2005. Courses in health, community services, mental health, ageing support and business. Call 1300 854 987.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · variation: 02 · macrostructure: Marquee Hero · theme: Newsprint · nav: N9 · footer: Ft5 · tone: editorial broadsheet */
+:root {
+  /* Newsprint — cool slate paper · steel-blue accent · roman-serif display */
+  --color-paper:    oklch(95.5% 0.008 250);
+  --color-paper-2:  oklch(91.5% 0.010 250);
+  --color-rule:     oklch(79% 0.012 250);
+  --color-neutral:  oklch(56% 0.014 250);
+  --color-muted:    oklch(43% 0.016 252);
+  --color-ink:      oklch(21% 0.020 260);
+  --color-accent:   oklch(47% 0.110 255);
+  --color-focus:    oklch(52% 0.130 255);
+
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body:    "IBM Plex Sans", "Segoe UI", ui-sans-serif, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --text-xs:   0.78rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.563rem;
+  --text-xl:   1.953rem;
+  --text-2xl:  clamp(2rem, 4.5vw + 0.5rem, 3.5rem);
+  --text-marquee: clamp(2.5rem, 12.5vw, 9rem);
+
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 180ms;
+  --dur-med: 320ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { overflow-x: clip; }
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Newsprint grain — SVG turbulence, no colour values, opacity modifier only */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+
+::selection { background: var(--color-accent); color: var(--color-paper); }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--page-gutter);
+  inset-block-start: -4rem;
+  z-index: 4;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: inset-block-start var(--dur-short) var(--ease-out);
+}
+.skip-link:focus-visible { inset-block-start: var(--space-sm); }
+
+/* ——— N9 · edge-aligned minimal nav ——— */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--page-gutter);
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-md);
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  min-height: 44px;
+}
+.wordmark small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+@media (max-width: 480px) { .wordmark small { display: none; } }
+.nav-cta {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4ch;
+  padding-inline: var(--space-sm);
+  border: 1px solid var(--color-ink);
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+}
+.nav-cta:hover { background: var(--color-ink); color: var(--color-paper); }
+.nav-cta:active { background: var(--color-muted); }
+.nav-cta .arrow { transition: transform var(--dur-short) var(--ease-out); display: inline-block; }
+.nav-cta:hover .arrow { transform: translateX(3px); }
+
+/* Masthead double rule */
+.rule-masthead {
+  margin-inline: var(--page-gutter);
+  border: 0;
+  border-block-start: 3px solid var(--color-ink);
+  position: relative;
+  height: 5px;
+}
+.rule-masthead::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 3px;
+  border-block-start: 1px solid var(--color-ink);
+}
+
+/* ——— H1 · Marquee hero ——— */
+.hero {
+  min-height: 84dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: var(--space-md) var(--page-gutter) var(--space-lg);
+}
+.dateline {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-block-start: var(--space-sm);
+}
+.hero h1 {
+  align-self: end;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  font-size: var(--text-marquee);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+  margin-inline: -0.04em; /* optically hug the viewport edges */
+}
+.hero h1 span { display: block; }
+.hero h1 .rise {
+  animation: rise 380ms var(--ease-out) both;
+}
+.hero h1 .rise:nth-child(2) { animation-delay: 90ms; }
+.hero h1 .rise:nth-child(3) { animation-delay: 180ms; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.3em); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ——— Thick rule between hero and below-fold ——— */
+.rule-thick {
+  border: 0;
+  border-block-start: 6px solid var(--color-ink);
+}
+
+/* ——— Course directory ——— */
+.section { padding: var(--space-xl) var(--page-gutter); }
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  font-size: var(--text-2xl);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+.section-lede {
+  margin-block-start: var(--space-md);
+  max-width: 58ch;
+  color: var(--color-muted);
+  font-size: var(--text-md);
+  line-height: 1.5;
+}
+
+.directory {
+  list-style: none;
+  margin-block-start: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: var(--space-2xl);
+  border-block-end: 1px solid var(--color-rule);
+}
+@media (min-width: 900px) { .directory { grid-template-columns: 1fr 1fr; } }
+.directory li { border-block-start: 1px solid var(--color-rule); }
+.course {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  padding-inline-end: var(--space-sm);
+  min-height: 44px;
+  text-decoration: none;
+  transition: background-color var(--dur-short) var(--ease-out);
+}
+.course:hover { background: var(--color-paper-2); }
+.course:active { background: var(--color-rule); }
+.course-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--text-md);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.course-meta {
+  display: block;
+  margin-block-start: 0.15rem;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+.course-meta .code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--color-neutral);
+}
+.course .arrow {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: 1;
+  color: var(--color-accent);
+  transition: transform var(--dur-short) var(--ease-out);
+}
+.course:hover .arrow, .course:focus-visible .arrow { transform: translateX(5px); }
+
+/* ——— Why AIFL · leader column ——— */
+.leader { padding: var(--space-2xl) var(--page-gutter) var(--space-xl); }
+.leader-columns {
+  margin-block-start: var(--space-lg);
+  max-width: 110ch;
+  column-width: 26ch;
+  column-gap: var(--space-xl);
+  column-rule: 1px solid var(--color-rule);
+  text-align: justify;
+  hyphens: auto;
+}
+.leader-columns p { margin-block-end: var(--space-md); max-width: none; }
+.leader-columns p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.4em;
+  line-height: 0.85;
+  float: inline-start;
+  padding-inline-end: 0.12em;
+  padding-block-start: 0.08em;
+}
+.leader-columns em { font-style: italic; }
+.leader-columns strong { font-weight: 600; }
+
+/* ——— CTA band ——— */
+.cta-band {
+  background: var(--color-paper-2);
+  border-block: 1px solid var(--color-rule);
+  padding: var(--space-xl) var(--page-gutter);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+@media (min-width: 860px) { .cta-band { grid-template-columns: 3fr 2fr; gap: var(--space-2xl); } }
+.cta-band h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  font-size: var(--text-2xl);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.cta-band .lede { margin-block: var(--space-md) var(--space-lg); max-width: 46ch; color: var(--color-muted); }
+.phone-line {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  display: inline-block;
+  min-height: 44px;
+  transition: color var(--dur-short) var(--ease-out);
+}
+.phone-line:hover { color: var(--color-accent); }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-block-start: var(--space-lg); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+}
+.btn:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-paper); transform: translateY(-1px); }
+.btn:active { background: var(--color-muted); border-color: var(--color-muted); transform: translateY(0); }
+.btn--outline { background: transparent; color: var(--color-ink); }
+.btn--outline:hover { background: var(--color-ink); color: var(--color-paper); transform: translateY(-1px); }
+.btn--outline:active { background: var(--color-muted); }
+
+/* Classified-ad panel for the e-book */
+.classified {
+  border: 3px double var(--color-ink);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: var(--space-sm);
+}
+.classified .flag {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.classified h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  max-width: 18ch;
+}
+.classified p { font-size: var(--text-sm); color: var(--color-muted); max-width: 34ch; }
+.classified .btn { margin-block-start: var(--space-sm); }
+
+/* ——— Ft5 · Statement footer ——— */
+.foot-stmt {
+  padding: var(--space-2xl) var(--page-gutter) var(--space-lg);
+  display: grid;
+  gap: var(--space-lg);
+}
+.foot-stmt__line {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: normal;
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  max-width: 28ch;
+}
+.foot-stmt__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-lg);
+  padding-block-start: var(--space-md);
+  border-block-start: 1px solid var(--color-rule);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+.foot-stmt__meta .wordmark { font-size: var(--text-base); min-height: 0; }
+.foot-stmt__meta a {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-rule);
+  text-underline-offset: 0.2em;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out);
+}
+.foot-stmt__meta a:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+    transition-property: opacity !important;
+  }
+  .hero h1 .rise { animation-name: fade-only; }
+  @keyframes fade-only { from { opacity: 0; } to { opacity: 1; } }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <nav class="masthead" aria-label="Primary">
+    <a class="wordmark" href="/" aria-label="AIFL — Australian Institute of Flexible Learning, home">AIFL <small>Australian Institute of Flexible Learning</small></a>
+    <a class="nav-cta" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry">Enquire <span class="arrow" aria-hidden="true">→</span></a>
+  </nav>
+  <hr class="rule-masthead" aria-hidden="true">
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="dateline">
+      <span>Melbourne, Victoria — Est. 2005</span>
+      <span>Health · Community · Business</span>
+    </p>
+    <div aria-hidden="true"></div>
+    <h1 id="hero-title">
+      <span class="rise">Education.</span>
+      <span class="rise">Empowered.</span>
+      <span class="rise">Endeavoured.</span>
+    </h1>
+  </section>
+
+  <hr class="rule-thick" aria-hidden="true">
+
+  <section class="section" aria-labelledby="directory-title">
+    <h2 class="section-title" id="directory-title">The course directory</h2>
+    <p class="section-lede">Fifteen qualifications across health, community services and business — delivered flexibly, anywhere in Australia, with full student support.</p>
+    <ul class="directory">
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC43315">
+        <span><span class="course-name">Certificate IV in Mental Health</span>
+        <span class="course-meta"><span class="code">CHC43315</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC43015">
+        <span><span class="course-name">Certificate IV in Ageing Support</span>
+        <span class="course-meta"><span class="code">CHC43015</span> · 12 months · Skills First funded</span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC33015">
+        <span><span class="course-name">Certificate III in Individual Support</span>
+        <span class="course-meta"><span class="code">CHC33015</span> · 60 weeks</span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20HLT43015">
+        <span><span class="course-name">Certificate IV in Allied Health Assistance</span>
+        <span class="course-meta"><span class="code">HLT43015</span> · 69 weeks</span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20HLT33015">
+        <span><span class="course-name">Certificate III in Allied Health Assistance</span>
+        <span class="course-meta"><span class="code">HLT33015</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC43215">
+        <span><span class="course-name">Certificate IV in Alcohol and Other Drugs</span>
+        <span class="course-meta"><span class="code">CHC43215</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC52015">
+        <span><span class="course-name">Diploma of Community Services</span>
+        <span class="course-meta"><span class="code">CHC52015</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC32015">
+        <span><span class="course-name">Certificate III in Community Services</span>
+        <span class="course-meta"><span class="code">CHC32015</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC22015">
+        <span><span class="course-name">Certificate II in Community Services</span>
+        <span class="course-meta"><span class="code">CHC22015</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20HLTAID003">
+        <span><span class="course-name">Provide First Aid</span>
+        <span class="course-meta"><span class="code">HLTAID003</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20HLTAID001">
+        <span><span class="course-name">Provide CPR</span>
+        <span class="course-meta"><span class="code">HLTAID001</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20BSB30115">
+        <span><span class="course-name">Certificate III in Business</span>
+        <span class="course-meta"><span class="code">BSB30115</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20BSB31115">
+        <span><span class="course-name">Certificate III in Business Administration (Medical)</span>
+        <span class="course-meta"><span class="code">BSB31115</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20HLT23215">
+        <span><span class="course-name">Certificate II in Health Support Services</span>
+        <span class="course-meta"><span class="code">HLT23215</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+      <li><a class="course" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%3A%20CHC14015">
+        <span><span class="course-name">Certificate I in Active Volunteering</span>
+        <span class="course-meta"><span class="code">CHC14015</span></span></span>
+        <span class="arrow" aria-hidden="true">→</span></a></li>
+    </ul>
+  </section>
+
+  <section class="leader" aria-labelledby="leader-title">
+    <h2 class="section-title" id="leader-title">Two decades of flexible learning</h2>
+    <div class="leader-columns">
+      <p>AIFL has been empowering people through education since 2005. We are passionate educators, and we believe study should fit around work and life — not the other way round. With us, you can learn at any age, at any stage, from anywhere in Australia.</p>
+      <p>Our trainers are experienced industry practitioners who teach what they have practised. They bring current, real-world knowledge from <em>health, community services, mental health, ageing support, alcohol and other drugs, and business</em> — and they back every student with full support for the length of the course.</p>
+      <p>Funding should never be the reason someone stops short. <strong>Skills First</strong> funded places are available on selected Victorian courses, alongside VET in Schools programs and subsidised traineeships. Ask us what you may be eligible for — a single phone call is usually enough to find out.</p>
+    </div>
+  </section>
+
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div>
+      <h2 id="cta-title">Talk to a real person about your next step</h2>
+      <p class="lede">Course advice, funding questions, enrolment — our Melbourne team is one phone call or one email away. Tell us where you want to go and we’ll help you find the course that fits.</p>
+      <a class="phone-line" href="tel:1300854987">1300 854 987</a>
+      <div class="btn-row">
+        <a class="btn" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry">Enquire now <span aria-hidden="true">→</span></a>
+        <a class="btn btn--outline" href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a>
+      </div>
+    </div>
+    <aside class="classified" aria-labelledby="ebook-title">
+      <p class="flag">Free e-book</p>
+      <h3 id="ebook-title">Motivation &amp; positive thinking</h3>
+      <p>Our free guide to motivation and positive thinking, for anyone weighing up a return to study. Yours by return email.</p>
+      <a class="btn btn--outline" href="mailto:admin@aifl.edu.au?subject=Free%20e-book%20request">Request your copy</a>
+    </aside>
+  </section>
+
+</main>
+
+<footer class="foot-stmt">
+  <p class="foot-stmt__line">Learn at any age, at any stage.</p>
+  <div class="foot-stmt__meta">
+    <span class="wordmark">AIFL</span>
+    <a href="tel:1300854987">1300 854 987</a>
+    <a href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a>
+    <span>Melbourne VIC</span>
+    <span>© 2026 J J Endeavours Pty Ltd</span>
+  </div>
+</footer>
+
+</body>
+</html>

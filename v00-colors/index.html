@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL Concept 00 — 10 Colourways</title>
+<style>
+/* Hallmark · colourway index for concept 00 · white bg, Poppins, palette swatches */
+:root {
+  --ink: oklch(24% 0.012 55);
+  --soft: oklch(45% 0.014 55);
+  --rule: oklch(91.5% 0.008 85);
+  --accent: oklch(72% 0.16 56);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow-x: clip; }
+body { background: oklch(100% 0 0); color: var(--ink); font-family: "Poppins", system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 64rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2rem); }
+header { padding-block: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 3vw, 2rem); border-bottom: 1px solid var(--rule); }
+.kicker { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.08; letter-spacing: -0.02em; margin-top: .5rem; font-style: normal; }
+header p { color: var(--soft); max-width: 60ch; margin-top: .75rem; }
+header a.back { color: var(--soft); font-size: .85rem; }
+ol { list-style: none; padding: 0; }
+li + li { border-top: 1px solid var(--rule); }
+ol a { display: grid; grid-template-columns: 3ch minmax(0,1fr) auto; align-items: center; gap: 1rem; padding: 1.1rem .5rem; text-decoration: none; color: inherit; transition: background 160ms var(--ease); }
+ol a:hover { background: oklch(97.5% 0.005 90); }
+ol a:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.num { font-size: .85rem; color: var(--accent); font-weight: 600; }
+.name { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; }
+.swatches { display: flex; gap: .4rem; }
+.swatches i { width: 1.4rem; height: 1.4rem; border-radius: 50%; display: block; box-shadow: inset 0 0 0 1px oklch(0% 0 0 / 0.08); }
+footer { padding-block: 2rem; font-size: .8rem; color: var(--soft); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header><div class="wrap">
+  <span class="kicker">Concept 00 · The Evolution</span>
+  <h1>Ten colourways, one design system.</h1>
+  <p>The clean white institutional redesign of aifl.edu.au, re-palette&shy;d ten ways. Same layout, typography and content in every file — only the colour tokens change. First file is the boldest departure; 09 keeps their original teal.</p>
+  <p><a class="back" href="../index.html">&larr; All concepts</a></p>
+</div></header>
+<main class="wrap">
+  <ol>
+    <li><a href="01-cobalt-amber.html">
+      <span class="num">01</span><span class="name">Cobalt & Amber</span>
+      <span class="swatches"><i style="background:oklch(62% 0.19 255)"></i><i style="background:oklch(78% 0.15 80)"></i><i style="background:oklch(24% 0.015 260)"></i></span>
+    </a></li>
+    <li><a href="02-forest-lime.html">
+      <span class="num">02</span><span class="name">Forest & Lime</span>
+      <span class="swatches"><i style="background:oklch(55% 0.13 150)"></i><i style="background:oklch(82% 0.17 110)"></i><i style="background:oklch(24% 0.015 152)"></i></span>
+    </a></li>
+    <li><a href="03-crimson-slate.html">
+      <span class="num">03</span><span class="name">Crimson & Slate</span>
+      <span class="swatches"><i style="background:oklch(58% 0.20 25)"></i><i style="background:oklch(60% 0.09 240)"></i><i style="background:oklch(24% 0.015 25)"></i></span>
+    </a></li>
+    <li><a href="04-violet-peach.html">
+      <span class="num">04</span><span class="name">Violet & Peach</span>
+      <span class="swatches"><i style="background:oklch(55% 0.20 295)"></i><i style="background:oklch(75% 0.13 55)"></i><i style="background:oklch(24% 0.015 295)"></i></span>
+    </a></li>
+    <li><a href="05-ocean-coral.html">
+      <span class="num">05</span><span class="name">Ocean & Coral</span>
+      <span class="swatches"><i style="background:oklch(65% 0.13 195)"></i><i style="background:oklch(70% 0.17 35)"></i><i style="background:oklch(24% 0.015 220)"></i></span>
+    </a></li>
+    <li><a href="06-indigo-mint.html">
+      <span class="num">06</span><span class="name">Indigo & Mint</span>
+      <span class="swatches"><i style="background:oklch(52% 0.19 275)"></i><i style="background:oklch(82% 0.12 165)"></i><i style="background:oklch(23% 0.015 275)"></i></span>
+    </a></li>
+    <li><a href="07-terracotta-sage.html">
+      <span class="num">07</span><span class="name">Terracotta & Sage</span>
+      <span class="swatches"><i style="background:oklch(62% 0.15 45)"></i><i style="background:oklch(68% 0.08 140)"></i><i style="background:oklch(25% 0.015 55)"></i></span>
+    </a></li>
+    <li><a href="08-royal-gold.html">
+      <span class="num">08</span><span class="name">Royal & Gold</span>
+      <span class="swatches"><i style="background:oklch(52% 0.21 265)"></i><i style="background:oklch(80% 0.14 90)"></i><i style="background:oklch(23% 0.015 265)"></i></span>
+    </a></li>
+    <li><a href="09-plum-teal.html">
+      <span class="num">09</span><span class="name">Plum & Teal</span>
+      <span class="swatches"><i style="background:oklch(52% 0.16 335)"></i><i style="background:oklch(60% 0.115 182)"></i><i style="background:oklch(24% 0.015 335)"></i></span>
+    </a></li>
+    <li><a href="10-emerald-apricot.html">
+      <span class="num">10</span><span class="name">Emerald & Apricot</span>
+      <span class="swatches"><i style="background:oklch(58% 0.14 165)"></i><i style="background:oklch(78% 0.13 65)"></i><i style="background:oklch(24% 0.015 168)"></i></span>
+    </a></li>
+  </ol>
+</main>
+<footer class="wrap">Australian Institute of Flexible Learning — 2026 redesign concepts.</footer>
+</body>
+</html>

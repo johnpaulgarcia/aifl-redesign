@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL Concept 00 — 10 Structural Variations</title>
+<style>
+/* Hallmark · structure index for concept 00 · white bg, Poppins */
+:root {
+  --ink: oklch(24% 0.012 55);
+  --soft: oklch(45% 0.014 55);
+  --rule: oklch(91.5% 0.008 85);
+  --accent: oklch(72% 0.16 56);
+  --teal: oklch(60% 0.115 182);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow-x: clip; }
+body { background: oklch(100% 0 0); color: var(--ink); font-family: "Poppins", system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 64rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2rem); }
+header { padding-block: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 3vw, 2rem); border-bottom: 1px solid var(--rule); }
+.kicker { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); line-height: 1.08; letter-spacing: -0.02em; margin-top: .5rem; font-style: normal; }
+header p { color: var(--soft); max-width: 62ch; margin-top: .75rem; }
+header a.back { color: var(--soft); font-size: .85rem; }
+ol { list-style: none; padding: 0; }
+li + li { border-top: 1px solid var(--rule); }
+ol a { display: grid; grid-template-columns: 3.5ch minmax(0,1fr); gap: .15rem 1rem; padding: 1.1rem .5rem; text-decoration: none; color: inherit; transition: background 160ms var(--ease); }
+ol a:hover { background: oklch(97.5% 0.005 90); }
+ol a:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.num { grid-row: span 2; font-size: .85rem; color: var(--accent); font-weight: 600; padding-top: .2rem; }
+.name { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; }
+.desc { color: var(--soft); font-size: .9rem; max-width: 68ch; }
+footer { padding-block: 2rem; font-size: .8rem; color: var(--soft); }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header><div class="wrap">
+  <span class="kicker">Concept 00 · The Evolution</span>
+  <h1>Ten structures, one design system.</h1>
+  <p>The clean white institutional redesign of aifl.edu.au, re-architected ten ways. Same palette, typeface, content and course data in every file — only the page structure and layout change. For palette experiments, see the <a href="../v00-colors/index.html" style="color:var(--teal)">ten colourways</a>.</p>
+  <p><a class="back" href="../index.html">&larr; All concepts</a></p>
+</div></header>
+<main class="wrap">
+  <ol>
+    <li><a href="s01-split-hero.html">
+      <span class="num">01</span><span class="name">Split Hero</span>
+      <span class="desc">Full-viewport 50/50 hero (copy left, edge-to-edge photo right), sticky facts rail beside a scrolling list of wide course rows.</span>
+    </a></li>
+    <li><a href="s02-course-finder.html">
+      <span class="num">02</span><span class="name">Course Finder First</span>
+      <span class="desc">The hero is a live search panel — type to filter all 15 courses instantly. Journey becomes a swipeable snap strip.</span>
+    </a></li>
+    <li><a href="s03-editorial-magazine.html">
+      <span class="num">03</span><span class="name">Editorial Magazine</span>
+      <span class="desc">Six-rem display headline, hairline rules, courses as a numbered directory 01–15, e-book as a subscription panel.</span>
+    </a></li>
+    <li><a href="s04-sticky-sidebar.html">
+      <span class="num">04</span><span class="name">Sticky Sidebar</span>
+      <span class="desc">Fixed left rail with logo, nav, phone and enquire button; content scrolls beside it with scroll-spy highlighting.</span>
+    </a></li>
+    <li><a href="s05-banded-zigzag.html">
+      <span class="num">05</span><span class="name">Banded Zigzag</span>
+      <span class="desc">Centered hero, then strictly alternating white/mist/teal-tint bands, each a reversed two-column zigzag row.</span>
+    </a></li>
+    <li><a href="s06-grid-first.html">
+      <span class="num">06</span><span class="name">Grid-First</span>
+      <span class="desc">Slim one-line hero, then the course grid IS the page — dense 3-column with featured wide cards and floating fact chips.</span>
+    </a></li>
+    <li><a href="s07-journey-led.html">
+      <span class="num">07</span><span class="name">Journey-Led Timeline</span>
+      <span class="desc">A vertical timeline spine structures the page: Choose, Enquire, Enrol, Study, Graduate as alternating node cards.</span>
+    </a></li>
+    <li><a href="s08-type-minimal.html">
+      <span class="num">08</span><span class="name">Type-Led Minimal</span>
+      <span class="desc">One narrow 44rem column, five-rem headline, no cards at all — ruled text rows and whitespace do the work.</span>
+    </a></li>
+    <li><a href="s09-panel-dashboard.html">
+      <span class="num">09</span><span class="name">Panel Dashboard</span>
+      <span class="desc">App-like rounded panels on a mist canvas: stat tiles, courses as a real table, journey as a tile row.</span>
+    </a></li>
+    <li><a href="s10-category-tabs.html">
+      <span class="num">10</span><span class="name">Category Tabs + Layered Hero</span>
+      <span class="desc">Headline overlaps a framed photo with floating stat cards; courses grouped under five animated category tabs.</span>
+    </a></li>
+  </ol>
+</main>
+<footer class="wrap">Australian Institute of Flexible Learning — 2026 redesign concepts.</footer>
+</body>
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL — Australian Institute of Flexible Learning</title>
+<meta name="description" content="Flexible, supported training across Australia in health, community services, mental health, ageing support and business. Study at any age, at any stage — since 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@500;600;700&family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · variation: 09 · macrostructure: Feature Stack · theme: Aurora · nav: N3 · footer: Ft5 · tone: dark atmospheric cinematic */
+:root {
+  /* Aurora — dark cyan night sky, anchor hue ~210 */
+  --color-paper:    oklch(14.5% 0.016 222);
+  --color-paper-2:  oklch(18%   0.02  216);
+  --color-paper-3:  oklch(22%   0.024 210);
+  --color-rule:     oklch(30%   0.02  212);
+  --color-neutral:  oklch(62%   0.016 210);
+  --color-muted:    oklch(76%   0.012 205);
+  --color-ink:      oklch(94%   0.008 200);
+  --color-accent:   oklch(82%   0.13  188);
+  --color-accent-2: oklch(85%   0.12  158);
+  --color-focus:    oklch(84%   0.14  188);
+  --color-bloom-1:  oklch(52%   0.09  205);
+  --color-bloom-2:  oklch(58%   0.1   175);
+  --color-shadow:   oklch(10%   0.01  225);
+
+  --font-display: "Tomorrow", "Geist", ui-sans-serif, sans-serif;
+  --font-body:    "Geist", ui-sans-serif, sans-serif;
+  --font-mono:    "Geist Mono", ui-monospace, monospace;
+
+  --text-xs:  0.8rem;
+  --text-sm:  0.9rem;
+  --text-base: 1rem;
+  --text-md:  1.25rem;
+  --text-lg:  1.5625rem;
+  --text-xl:  1.9531rem;
+  --text-2xl: 2.4414rem;
+  --text-display: clamp(2.5rem, 6vw + 0.75rem, 4.75rem);
+
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 6rem;
+  --page-gutter: clamp(1.25rem, 4.5vw, 4rem);
+  --rail-w: 3.75rem;
+  --rule-hair: 1px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-med: 280ms;
+
+  --z-rail: 40;
+  --z-sticky: 10;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+p { margin: 0; max-width: 62ch; }
+a { color: var(--color-ink); }
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+::selection { background: var(--color-accent); color: var(--color-paper); }
+
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: var(--space-md);
+  z-index: 60;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-decoration: none;
+  transform: translateY(-6rem);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+/* ---------- N3 side rail ---------- */
+.rail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--rail-w);
+  z-index: var(--z-rail);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) 0;
+  border-right: var(--rule-hair) solid var(--color-rule);
+  background: var(--color-paper);
+}
+@media (min-width: 1100px) {
+  .rail { display: flex; }
+  main, .foot-stmt { margin-left: var(--rail-w); }
+}
+.rail__wordmark {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.rail__dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.rail__dot {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.rail__dot::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--color-neutral);
+  transition: background-color var(--dur-med) var(--ease-out),
+              border-color var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
+}
+.rail__dot:hover::before { border-color: var(--color-ink); transform: scale(1.35); }
+.rail__dot[aria-current="true"]::before {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.35);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(6rem, 14vh, 10rem) var(--page-gutter) var(--space-2xl);
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-end;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: clip;
+  background:
+    radial-gradient(55% 42% at 18% 8%,
+      color-mix(in oklch, var(--color-bloom-1) 34%, transparent),
+      transparent 72%),
+    radial-gradient(48% 40% at 86% 22%,
+      color-mix(in oklch, var(--color-bloom-2) 26%, transparent),
+      transparent 70%),
+    radial-gradient(70% 55% at 55% 110%,
+      color-mix(in oklch, var(--color-bloom-1) 16%, transparent),
+      transparent 75%),
+    var(--color-paper);
+}
+.hero__grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+}
+.hero__inner { max-width: 56rem; }
+.hero__stat {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+  font-variant-numeric: tabular-nums;
+}
+.hero h1 {
+  font-size: var(--text-display);
+  max-width: 14ch;
+}
+.hero__lede {
+  margin-top: var(--space-lg);
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  max-width: 46ch;
+}
+.hero__ctas {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ---------- Buttons & links ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-base);
+  text-decoration: none;
+  white-space: nowrap;
+  border: var(--rule-hair) solid transparent;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.btn--solid { background: var(--color-ink); color: var(--color-paper); }
+.btn--solid:hover { background: var(--color-accent); color: var(--color-paper); transform: translateY(-2px); }
+.btn--solid:active { transform: translateY(0); }
+.btn--ghost { border-color: var(--color-rule); color: var(--color-ink); }
+.btn--ghost:hover { border-color: var(--color-ink); transform: translateY(-2px); }
+.btn--ghost:active { transform: translateY(0); }
+
+.link-line {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-rule);
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.link-line:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+
+/* ---------- Feature stack ---------- */
+.stack {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-xl);
+  padding: var(--space-2xl) var(--page-gutter);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.stack__sticky {
+  position: sticky;
+  top: var(--space-xl);
+  align-self: start;
+  z-index: var(--z-sticky);
+}
+.stack__sticky h2 { font-size: var(--text-2xl); max-width: 16ch; }
+.stack__sticky p { margin-top: var(--space-md); color: var(--color-muted); }
+.stack__cue {
+  margin-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-neutral);
+  font-variant-numeric: tabular-nums;
+  min-height: 1.4em;
+}
+.stack__cue strong { color: var(--color-accent); font-weight: 500; }
+.stack__cta { margin-top: var(--space-lg); }
+
+.stack__panels {
+  display: grid;
+  gap: var(--space-xl);
+  min-width: 0;
+}
+.panel {
+  margin: 0;
+  background: var(--color-paper-2);
+  border: var(--rule-hair) solid var(--color-rule);
+  padding: clamp(var(--space-md), 3vw, var(--space-xl));
+  display: grid;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+.panel__art {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.panel__index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+.panel h3 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: var(--space-sm);
+}
+.panel figcaption p {
+  margin-top: var(--space-sm);
+  color: var(--color-muted);
+  font-size: var(--text-base);
+}
+
+/* ---------- Course group panels ---------- */
+.course-group h3 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  padding-bottom: var(--space-md);
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.course-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.course-group li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.15rem;
+  padding: var(--space-md) 0;
+  border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.course-group li:last-child { border-bottom: 0; }
+.course__name { font-weight: 500; font-size: var(--text-md); line-height: 1.35; }
+.course__meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-neutral);
+  font-variant-numeric: tabular-nums;
+}
+.course__tag {
+  display: inline-block;
+  margin-left: 0.5em;
+  padding: 0.1em 0.5em;
+  border: var(--rule-hair) solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.course-group__foot { margin-top: var(--space-md); }
+
+/* ---------- Why band ---------- */
+.why {
+  padding: var(--space-2xl) var(--page-gutter);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  position: relative;
+  isolation: isolate;
+}
+.why__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(45% 60% at 92% 100%,
+      color-mix(in oklch, var(--color-bloom-2) 14%, transparent),
+      transparent 72%),
+    var(--color-paper);
+}
+.why h2 { font-size: var(--text-2xl); max-width: 20ch; }
+.why__list {
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 0 var(--space-xl);
+}
+.why__list li {
+  padding: var(--space-lg) 0;
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.why__list h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+.why__list h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.6em;
+  background: var(--color-accent);
+  vertical-align: baseline;
+}
+.why__list p { margin-top: var(--space-sm); color: var(--color-muted); font-size: var(--text-sm); }
+
+/* ---------- E-book CTA ---------- */
+.ebook {
+  position: relative;
+  isolation: isolate;
+  padding: var(--space-2xl) var(--page-gutter);
+  border-top: var(--rule-hair) solid var(--color-rule);
+}
+.ebook__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(50% 70% at 12% 50%,
+      color-mix(in oklch, var(--color-bloom-1) 24%, transparent),
+      transparent 72%),
+    var(--color-paper-2);
+}
+.ebook__inner { max-width: 44rem; }
+.ebook h2 { font-size: var(--text-2xl); max-width: 18ch; }
+.ebook p { margin-top: var(--space-md); color: var(--color-muted); }
+.ebook__ctas { margin-top: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; }
+.ebook__note {
+  margin-top: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral);
+}
+
+/* ---------- Ft5 statement footer ---------- */
+.foot-stmt {
+  padding: var(--space-2xl) var(--page-gutter) var(--space-xl);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  display: grid;
+  gap: var(--space-xl);
+}
+.foot-stmt__line {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  margin: 0;
+}
+.foot-stmt__line span { color: var(--color-accent); }
+.foot-stmt__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md) var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: var(--rule-hair) solid var(--color-rule);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+}
+.foot-stmt__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+.foot-stmt__contact { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); }
+.foot-stmt__contact a { color: var(--color-muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1099px) {
+  .stack { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
+  .stack__sticky { position: static; }
+}
+@media (max-width: 560px) {
+  .hero { min-height: 70vh; padding-top: var(--space-2xl); }
+  .hero__ctas .btn, .ebook__ctas .btn { flex: 1 1 100%; }
+  .panel { gap: var(--space-md); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 150ms !important;
+    transition-property: opacity !important;
+    animation: none !important;
+  }
+  .btn--solid:hover, .btn--ghost:hover, .rail__dot:hover::before,
+  .rail__dot[aria-current="true"]::before { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="rail" aria-label="Sections">
+  <a class="rail__wordmark" href="#top">AIFL · Est. 2005</a>
+  <ul class="rail__dots">
+    <li><a class="rail__dot" href="#top" aria-label="Top" data-spy="top"></a></li>
+    <li><a class="rail__dot" href="#pathways" aria-label="Flexible study" data-spy="pathways"></a></li>
+    <li><a class="rail__dot" href="#courses" aria-label="Courses" data-spy="courses"></a></li>
+    <li><a class="rail__dot" href="#why" aria-label="Why AIFL" data-spy="why"></a></li>
+    <li><a class="rail__dot" href="#ebook" aria-label="Free e-book" data-spy="ebook"></a></li>
+    <li><a class="rail__dot" href="#contact" aria-label="Contact" data-spy="contact"></a></li>
+  </ul>
+  <span aria-hidden="true"></span>
+</nav>
+
+<main id="main">
+
+  <header class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <svg class="hero__grain" width="100%" height="100%" focusable="false">
+        <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter>
+        <rect width="100%" height="100%" filter="url(#grain)"/>
+      </svg>
+    </div>
+    <div class="hero__inner">
+      <p class="hero__stat">Melbourne VIC · Australia-wide · Est. 2005</p>
+      <h1>Learn at any age, at any stage.</h1>
+      <p class="hero__lede">AIFL delivers flexible, supported training in health, community care and business — built to fit around your work and your life, wherever you are in Australia.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--solid" href="#courses">Browse courses</a>
+        <a class="btn btn--ghost" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry">Enquire now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Feature stack 1 · flexible study -->
+  <section class="stack" id="pathways" aria-labelledby="pathways-h">
+    <div class="stack__sticky">
+      <h2 id="pathways-h">Study that bends around your life.</h2>
+      <p>No lecture halls, no rigid timetable. AIFL courses are designed for people with jobs, families and full lives — scroll through what flexibility actually means here.</p>
+      <p class="stack__cue" aria-hidden="true"><strong data-cue-current>01</strong> / <span data-cue-total>04</span> · <span data-cue-name>After hours</span></p>
+    </div>
+    <div class="stack__panels">
+
+      <figure class="panel" data-cue="After hours">
+        <svg class="panel__art" viewBox="0 0 320 190" role="img" aria-label="Abstract drawing of a low moon over horizon lines">
+          <circle cx="232" cy="58" r="26" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+          <path d="M20 118 H300" stroke="var(--color-rule)" stroke-width="1"/>
+          <path d="M20 138 H300" stroke="var(--color-rule)" stroke-width="1"/>
+          <path d="M20 158 H300" stroke="var(--color-rule)" stroke-width="1"/>
+          <path d="M20 118 Q 120 92 232 118 T 300 118" fill="none" stroke="var(--color-muted)" stroke-width="1"/>
+          <path d="M60 40 q 14 20 0 40 M84 32 q 18 28 0 56" fill="none" stroke="var(--color-accent-2)" stroke-width="1" opacity="0.7"/>
+        </svg>
+        <figcaption>
+          <span class="panel__index">01</span>
+          <h3>Evenings, weekends, in-between</h3>
+          <p>Coursework you can pick up after the shift ends or the kids are asleep — and put down again without falling behind.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="panel" data-cue="Anywhere">
+        <svg class="panel__art" viewBox="0 0 320 190" role="img" aria-label="Abstract drawing of connected points across a map grid">
+          <g stroke="var(--color-rule)" stroke-width="1">
+            <path d="M40 20 V170 M100 20 V170 M160 20 V170 M220 20 V170 M280 20 V170"/>
+            <path d="M20 50 H300 M20 100 H300 M20 150 H300"/>
+          </g>
+          <path d="M40 150 Q 130 30 220 100 T 300 60" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+          <circle cx="40" cy="150" r="4" fill="var(--color-accent)"/>
+          <circle cx="220" cy="100" r="4" fill="var(--color-accent)"/>
+          <circle cx="300" cy="60" r="4" fill="var(--color-accent)"/>
+        </svg>
+        <figcaption>
+          <span class="panel__index">02</span>
+          <h3>Anywhere in Australia</h3>
+          <p>Based in Melbourne, teaching everywhere. Study from Perth, Dubbo or Devonport with the same level of support.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="panel" data-cue="Your pace">
+        <svg class="panel__art" viewBox="0 0 320 190" role="img" aria-label="Abstract drawing of an ascending stepped line">
+          <path d="M30 160 H90 V120 H150 V82 H210 V46 H290" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+          <g stroke="var(--color-rule)" stroke-width="1">
+            <path d="M30 160 H290 M30 120 H290 M30 82 H290 M30 46 H290" opacity="0.5"/>
+          </g>
+          <circle cx="290" cy="46" r="5" fill="none" stroke="var(--color-accent-2)" stroke-width="1.5"/>
+        </svg>
+        <figcaption>
+          <span class="panel__index">03</span>
+          <h3>Your pace, your plan</h3>
+          <p>Move faster when life is quiet, slower when it isn’t. Flexible study options mean the course waits for you — not the other way round.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="panel" data-cue="Real trainers">
+        <svg class="panel__art" viewBox="0 0 320 190" role="img" aria-label="Abstract drawing of two overlapping voice arcs">
+          <path d="M60 130 a 70 70 0 0 1 140 0" fill="none" stroke="var(--color-accent)" stroke-width="1.5"/>
+          <path d="M110 130 a 40 40 0 0 1 80 0" fill="none" stroke="var(--color-accent-2)" stroke-width="1.5" opacity="0.8"/>
+          <path d="M30 150 H290" stroke="var(--color-rule)" stroke-width="1"/>
+          <circle cx="130" cy="95" r="4" fill="var(--color-muted)"/>
+          <circle cx="170" cy="95" r="4" fill="var(--color-muted)"/>
+        </svg>
+        <figcaption>
+          <span class="panel__index">04</span>
+          <h3>Backed by real trainers</h3>
+          <p>Your trainers are experienced industry practitioners — people who have done the work you’re training for, with full student support behind them.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- Feature stack 2 · course discovery -->
+  <section class="stack" id="courses" aria-labelledby="courses-h">
+    <div class="stack__sticky">
+      <h2 id="courses-h">Fifteen courses. Three directions.</h2>
+      <p>Health and ageing, community and mental health, or business — every course is a nationally recognised qualification code, taught with support from enrolment to completion.</p>
+      <p class="stack__cue" aria-hidden="true"><strong data-cue-current>01</strong> / <span data-cue-total>03</span> · <span data-cue-name>Health &amp; Ageing</span></p>
+      <div class="stack__cta">
+        <a class="btn btn--solid" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry">Enquire now</a>
+      </div>
+    </div>
+    <div class="stack__panels">
+
+      <div class="panel course-group" data-cue="Health &amp; Ageing">
+        <h3>Health &amp; Ageing</h3>
+        <ul>
+          <li>
+            <span class="course__name">Certificate IV in Ageing Support</span>
+            <span class="course__meta">CHC43015 · 12 months<span class="course__tag">Skills First funded</span></span>
+          </li>
+          <li>
+            <span class="course__name">Certificate III in Individual Support</span>
+            <span class="course__meta">CHC33015 · 60 weeks</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate IV in Allied Health Assistance</span>
+            <span class="course__meta">HLT43015 · 69 weeks</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate III in Allied Health Assistance</span>
+            <span class="course__meta">HLT33015</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate II in Health Support Services</span>
+            <span class="course__meta">HLT23215</span>
+          </li>
+          <li>
+            <span class="course__name">Provide First Aid</span>
+            <span class="course__meta">HLTAID003</span>
+          </li>
+          <li>
+            <span class="course__name">Provide CPR</span>
+            <span class="course__meta">HLTAID001</span>
+          </li>
+        </ul>
+        <p class="course-group__foot"><a class="link-line" href="mailto:admin@aifl.edu.au?subject=Enquiry%20—%20Health%20%26%20Ageing%20courses">Enquire about health &amp; ageing</a></p>
+      </div>
+
+      <div class="panel course-group" data-cue="Community &amp; Mental Health">
+        <h3>Community &amp; Mental Health</h3>
+        <ul>
+          <li>
+            <span class="course__name">Certificate IV in Mental Health</span>
+            <span class="course__meta">CHC43315</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate IV in Alcohol and Other Drugs</span>
+            <span class="course__meta">CHC43215</span>
+          </li>
+          <li>
+            <span class="course__name">Diploma of Community Services</span>
+            <span class="course__meta">CHC52015</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate III in Community Services</span>
+            <span class="course__meta">CHC32015</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate II in Community Services</span>
+            <span class="course__meta">CHC22015</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate I in Active Volunteering</span>
+            <span class="course__meta">CHC14015</span>
+          </li>
+        </ul>
+        <p class="course-group__foot"><a class="link-line" href="mailto:admin@aifl.edu.au?subject=Enquiry%20—%20Community%20%26%20Mental%20Health%20courses">Enquire about community &amp; mental health</a></p>
+      </div>
+
+      <div class="panel course-group" data-cue="Business">
+        <h3>Business</h3>
+        <ul>
+          <li>
+            <span class="course__name">Certificate III in Business</span>
+            <span class="course__meta">BSB30115</span>
+          </li>
+          <li>
+            <span class="course__name">Certificate III in Business Administration (Medical)</span>
+            <span class="course__meta">BSB31115</span>
+          </li>
+        </ul>
+        <p class="course-group__foot"><a class="link-line" href="mailto:admin@aifl.edu.au?subject=Enquiry%20—%20Business%20courses">Enquire about business courses</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why AIFL -->
+  <section class="why" id="why" aria-labelledby="why-h">
+    <div class="why__bg" aria-hidden="true"></div>
+    <h2 id="why-h">Educators first, since 2005.</h2>
+    <ul class="why__list">
+      <li>
+        <h3>Two decades of teaching</h3>
+        <p>Passionate educators empowering people through education across Australia since 2005.</p>
+      </li>
+      <li>
+        <h3>Practitioners, not lecturers</h3>
+        <p>Every trainer is an experienced industry practitioner who has worked the roles they teach.</p>
+      </li>
+      <li>
+        <h3>Funded pathways</h3>
+        <p>Skills First funded places (Victoria) on selected courses, VET in Schools programs and subsidised traineeships.</p>
+      </li>
+      <li>
+        <h3>Support that stays</h3>
+        <p>Full student support from first enquiry to final assessment — by phone, email and online.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- E-book lead magnet -->
+  <section class="ebook" id="ebook" aria-labelledby="ebook-h">
+    <div class="ebook__bg" aria-hidden="true"></div>
+    <div class="ebook__inner">
+      <h2 id="ebook-h">Start with a free e-book.</h2>
+      <p>Not ready to enrol? Download AIFL’s free e-book on motivation and positive thinking — a small first step toward whatever comes next for you.</p>
+      <div class="ebook__ctas">
+        <a class="btn btn--solid" href="mailto:admin@aifl.edu.au?subject=Free%20e-book%20download">Get the free e-book</a>
+        <a class="btn btn--ghost" href="tel:1300854987">Call 1300 854 987</a>
+      </div>
+      <p class="ebook__note">Free download · No enrolment required</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot-stmt" id="contact">
+  <p class="foot-stmt__line">Education. Empowered. <span>Endeavoured.</span></p>
+  <div class="foot-stmt__meta">
+    <span class="foot-stmt__brand">AIFL — Australian Institute of Flexible Learning</span>
+    <div class="foot-stmt__contact">
+      <a class="link-line" href="tel:1300854987">1300 854 987</a>
+      <a class="link-line" href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a>
+      <span>Melbourne VIC, Australia</span>
+    </div>
+    <span>© 2026 J J Endeavours Pty Ltd</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Rail scrollspy — marks the section currently in view */
+  var dots = document.querySelectorAll(".rail__dot");
+  var sections = [];
+  dots.forEach(function (dot) {
+    var target = document.getElementById(dot.getAttribute("data-spy"));
+    if (target) sections.push({ dot: dot, el: target });
+  });
+
+  function setCurrent(id) {
+    dots.forEach(function (dot) {
+      dot.setAttribute("aria-current", dot.getAttribute("data-spy") === id ? "true" : "false");
+    });
+  }
+
+  if ("IntersectionObserver" in window && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) setCurrent(entry.target.id);
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    sections.forEach(function (s) { spy.observe(s.el); });
+  }
+
+  /* Sticky-pane scroll cues — one per feature stack */
+  document.querySelectorAll(".stack").forEach(function (stack) {
+    var panels = stack.querySelectorAll("[data-cue]");
+    var cur = stack.querySelector("[data-cue-current]");
+    var total = stack.querySelector("[data-cue-total]");
+    var name = stack.querySelector("[data-cue-name]");
+    if (!panels.length || !cur || !name) return;
+    if (total) total.textContent = ("0" + panels.length).slice(-2);
+
+    function update(i) {
+      cur.textContent = ("0" + (i + 1)).slice(-2);
+      name.textContent = panels[i].getAttribute("data-cue");
+    }
+
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            update(Array.prototype.indexOf.call(panels, entry.target));
+          }
+        });
+      }, { rootMargin: "-45% 0px -45% 0px" });
+      panels.forEach(function (p) { io.observe(p); });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
