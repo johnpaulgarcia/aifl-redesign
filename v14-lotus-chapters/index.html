@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL 2026 — Lotus Chapters</title>
+<meta name="description" content="Taken from the mud. Risen in gold. AIFL — flexible online health and community courses, Australia-wide, since 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · variation: v14-lotus-chapters · macrostructure: lotus-chapters · theme: from-scratch reimagining (white, Poppins, orange/teal/gold lotus) */
+:root {
+  --paper: oklch(100% 0 0);
+  --paper-warm: oklch(97.5% 0.008 95);
+  --ink: oklch(26% 0.015 70);
+  --ink-soft: oklch(45% 0.015 70);
+  --ink-mute: oklch(60% 0.012 75);
+  --hairline: oklch(90% 0.01 90);
+  --brand: oklch(72% 0.16 56);
+  --brand-deep: oklch(55% 0.15 50);
+  --brand-tint: oklch(95% 0.035 80);
+  --teal: oklch(60% 0.115 182);
+  --teal-deep: oklch(44% 0.09 185);
+  --teal-tint: oklch(94% 0.03 180);
+  --gold-hi: oklch(85% 0.15 90);
+  --gold-lo: oklch(65% 0.16 75);
+  --gold-deep: oklch(52% 0.13 70);
+  --leaf: oklch(62% 0.11 145);
+  --leaf-deep: oklch(42% 0.08 150);
+  --grad-gold: linear-gradient(120deg, var(--gold-hi) 0%, var(--gold-lo) 55%, var(--gold-deep) 100%);
+  --grad-stem: linear-gradient(180deg, var(--teal) 0%, var(--gold-lo) 100%);
+  --font: "Poppins", system-ui, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-soft: 0 1px 2px oklch(26% 0.015 70 / 0.05), 0 16px 44px oklch(26% 0.015 70 / 0.08);
+  --shadow-lift: 0 2px 6px oklch(26% 0.015 70 / 0.07), 0 28px 64px oklch(26% 0.015 70 / 0.14);
+  --r-sm: 0.5rem;
+  --r-md: 0.9rem;
+  --r-lg: 1.4rem;
+}
+
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, h4 { font-style: normal; line-height: 1.1; letter-spacing: -0.02em; overflow-wrap: anywhere; min-width: 0; }
+button { font-family: var(--font); }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+
+.skip {
+  position: absolute; top: 0; left: 1rem; z-index: 400;
+  transform: translateY(-130%);
+  background: var(--ink); color: var(--paper);
+  padding: 0.7rem 1rem; font-size: 0.875rem; text-decoration: none;
+  transition: transform 160ms var(--ease);
+}
+.skip:focus-visible { transform: translateY(0); }
+
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4.5vw, 2.25rem); }
+
+/* ── Gold gradient text ─────────────────────────────────────── */
+.gold-text {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Nav ────────────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  background: oklch(100% 0 0 / 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+.nav.is-scrolled { border-bottom-color: var(--hairline); box-shadow: 0 10px 30px oklch(26% 0.015 70 / 0.06); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.75rem; }
+.nav__logo { flex: none; display: inline-flex; align-items: center; }
+.nav__logo img { height: 2.9rem; width: auto; }
+.nav__links { display: flex; align-items: center; gap: 0.15rem; list-style: none; padding: 0; }
+.nav__links a {
+  display: inline-flex; align-items: center;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--ink-soft); text-decoration: none;
+  border-radius: var(--r-sm); white-space: nowrap;
+  transition: color 160ms var(--ease), background 160ms var(--ease);
+}
+.nav__links a:hover { color: var(--ink); background: var(--paper-warm); }
+.nav__phone { font-weight: 700 !important; color: var(--brand-deep) !important; }
+.nav__cta {
+  background: var(--grad-gold);
+  color: oklch(28% 0.05 70) !important;
+  font-weight: 700 !important;
+  padding-inline: 1.3rem !important;
+  box-shadow: 0 6px 18px oklch(65% 0.16 75 / 0.35);
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease) !important;
+}
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px oklch(65% 0.16 75 / 0.45); background: var(--grad-gold) !important; }
+.nav__toggle {
+  display: none;
+  width: 2.75rem; height: 2.75rem;
+  align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--hairline); border-radius: var(--r-sm);
+  cursor: pointer;
+}
+.nav__toggle svg { width: 1.25rem; height: 1.25rem; stroke: var(--ink); }
+.nav__toggle .icon-close { display: none; }
+.nav__toggle[aria-expanded="true"] .icon-open { display: none; }
+.nav__toggle[aria-expanded="true"] .icon-close { display: block; }
+@media (max-width: 62rem) {
+  .nav__toggle { display: inline-flex; }
+  .nav__menu {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+    box-shadow: var(--shadow-lift);
+    padding: 1rem clamp(1.25rem, 4.5vw, 2.25rem) 1.5rem;
+  }
+  .nav__menu.is-open { display: block; }
+  .nav__links { flex-direction: column; align-items: stretch; }
+  .nav__links a { padding: 0.85rem 1rem; min-height: 44px; }
+  .nav__cta { justify-content: center; margin-top: 0.5rem; }
+}
+
+/* ── Progress rail — the stem you climb ─────────────────────── */
+.rail {
+  position: fixed; right: 1.4rem; top: 50%;
+  transform: translateY(-50%);
+  z-index: 150;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0;
+}
+.rail__stem {
+  position: relative;
+  width: 2px; height: 11rem;
+  background: var(--hairline);
+  border-radius: 2px;
+}
+.rail__fill {
+  position: absolute; inset: 0;
+  background: var(--grad-stem);
+  transform-origin: top;
+  transform: scaleY(0);
+  border-radius: 2px;
+}
+.rail__lotus {
+  width: 2.2rem; height: 2.2rem;
+  margin-bottom: 0.55rem;
+  transition: transform 300ms var(--ease);
+}
+.rail__dots { list-style: none; padding: 0; margin-top: 0.55rem; display: grid; gap: 0.7rem; }
+.rail__dots a {
+  display: grid; place-items: center;
+  width: 0.8rem; height: 0.8rem;
+  border-radius: 50%;
+  background: var(--hairline);
+  transition: background 240ms var(--ease), transform 240ms var(--ease);
+}
+.rail__dots a:hover { transform: scale(1.35); }
+.rail__dots a[aria-current="true"] { background: var(--gold-lo); transform: scale(1.35); box-shadow: 0 0 0 4px oklch(65% 0.16 75 / 0.2); }
+.rail__dots .tip {
+  position: absolute; right: 1.4rem;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-mute);
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  opacity: 0; pointer-events: none;
+  transform: translateX(4px);
+  transition: opacity 160ms var(--ease), transform 160ms var(--ease);
+  white-space: nowrap;
+}
+.rail__dots li { position: relative; display: grid; place-items: center; }
+.rail__dots li:hover .tip, .rail__dots a:focus-visible + .tip { opacity: 1; transform: none; }
+@media (max-width: 74rem) { .rail { display: none; } }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 1.4rem;
+}
+.hero__eyebrow::before { content: ""; width: 2.4rem; height: 2px; background: var(--grad-gold); border-radius: 2px; }
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin-bottom: 1.4rem;
+}
+.hero__lede {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 300;
+  color: var(--ink-soft);
+  max-width: 34rem;
+  margin-bottom: 2.2rem;
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.6rem; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+  min-height: 52px;
+  padding: 0.7rem 1.9rem;
+  font-size: 0.95rem; font-weight: 600;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease);
+}
+.btn--gold { background: var(--grad-gold); color: oklch(28% 0.05 70); box-shadow: 0 10px 28px oklch(65% 0.16 75 / 0.35); }
+.btn--gold:hover { transform: translateY(-2px); box-shadow: 0 16px 36px oklch(65% 0.16 75 / 0.45); }
+.btn--line { border-color: var(--teal); color: var(--teal-deep); background: var(--paper); }
+.btn--line:hover { background: var(--teal-tint); transform: translateY(-2px); }
+.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+.hero__facts {
+  list-style: none; padding: 1.6rem 0 0;
+  border-top: 1px solid var(--hairline);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.hero__facts strong {
+  display: block;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.hero__facts li:nth-child(1) strong { color: var(--brand-deep); }
+.hero__facts li:nth-child(2) strong { color: var(--gold-deep); }
+.hero__facts li:nth-child(3) strong { color: var(--teal-deep); }
+.hero__facts li:nth-child(4) strong { color: var(--leaf-deep); }
+.hero__facts span { font-size: 0.78rem; font-weight: 400; color: var(--ink-mute); }
+
+.hero__visual { position: relative; }
+.hero__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lift);
+}
+.hero__photo-frame::before {
+  content: "";
+  position: absolute; inset: 1.1rem -1.1rem -1.1rem 1.1rem;
+  border: 1.5px solid oklch(65% 0.16 75 / 0.5);
+  border-radius: var(--r-lg);
+  z-index: -1;
+}
+.hero__photo-frame { position: relative; }
+.hero__lotus-badge {
+  position: absolute; left: -2.2rem; bottom: -2.2rem;
+  width: clamp(7rem, 12vw, 9.5rem);
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  background: var(--paper);
+  border-radius: 50%;
+  box-shadow: var(--shadow-lift);
+}
+.hero__lotus-badge svg { width: 72%; height: 72%; }
+@media (max-width: 62rem) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+  .hero__visual { max-width: 26rem; margin-inline: auto; }
+  .hero__photo { aspect-ratio: 4 / 3.4; }
+  .hero__lotus-badge { left: -1.2rem; bottom: -1.2rem; }
+}
+@media (max-width: 34rem) {
+  .hero__facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ── Chapters — shared scaffolding ──────────────────────────── */
+.chapter { position: relative; padding-block: clamp(4rem, 10vw, 7.5rem); }
+.chapter--warm { background: var(--paper-warm); }
+.chapter__head {
+  position: relative;
+  max-width: 46rem;
+  margin-bottom: clamp(2.4rem, 5vw, 4rem);
+  padding-left: clamp(1.4rem, 3vw, 2.4rem);
+}
+.chapter__head::before {
+  content: "";
+  position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem;
+  width: 3px;
+  background: var(--grad-stem);
+  border-radius: 3px;
+}
+.chapter__ghost {
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(6rem, 16vw, 12rem);
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px oklch(65% 0.16 75 / 0.28);
+  user-select: none;
+  pointer-events: none;
+}
+.chapter__kicker {
+  display: flex; align-items: baseline; gap: 0.7rem;
+  font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 0.9rem;
+}
+.chapter__kicker .n { color: var(--gold-deep); }
+.chapter__head h2 {
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.9rem;
+}
+.chapter__head > p:last-child, .chapter__sub {
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-weight: 300;
+  color: var(--ink-soft);
+  max-width: 38rem;
+}
+
+/* ── Chapter 1 · The Mud ────────────────────────────────────── */
+.mud .wrap > .mud__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.mud__media { position: relative; }
+.mud__media img {
+  width: 100%;
+  aspect-ratio: 4 / 4.7;
+  object-fit: cover;
+  border-radius: var(--r-lg) var(--r-lg) 40% var(--r-lg);
+  box-shadow: var(--shadow-lift);
+}
+.mud__quote {
+  position: absolute;
+  right: -1rem; bottom: 2rem;
+  max-width: 15rem;
+  background: var(--paper);
+  border-left: 4px solid var(--gold-lo);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-soft);
+  padding: 1.1rem 1.3rem;
+  font-size: 0.92rem; font-weight: 500;
+  color: var(--ink);
+}
+.mud__quote span { display: block; margin-top: 0.3rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mute); }
+.mud__body p { font-weight: 300; color: var(--ink-soft); margin-bottom: 1.2rem; max-width: 56ch; }
+.mud__body p strong { font-weight: 600; color: var(--ink); }
+.mud__roots {
+  list-style: none; padding: 0; margin-top: 1.8rem;
+  display: grid; gap: 0.9rem;
+}
+.mud__roots li {
+  display: flex; gap: 0.8rem; align-items: baseline;
+  font-size: 0.95rem; font-weight: 400; color: var(--ink);
+}
+.mud__roots li::before {
+  content: "";
+  flex: none;
+  width: 0.55rem; height: 0.55rem;
+  border-radius: 50%;
+  background: var(--grad-gold);
+  transform: translateY(-0.05rem);
+}
+@media (max-width: 62rem) {
+  .mud .wrap > .mud__grid { grid-template-columns: minmax(0, 1fr); }
+  .mud__media { max-width: 28rem; }
+  .mud__media img { aspect-ratio: 16 / 11; border-radius: var(--r-lg); }
+  .mud__quote { right: 0.8rem; bottom: -1.4rem; }
+}
+
+/* ── Chapter 2 · First Light ────────────────────────────────── */
+.light__claim {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: clip;
+  isolation: isolate;
+  padding: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  color: var(--paper);
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+.light__claim img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.light__claim::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(100deg, oklch(30% 0.06 180 / 0.88) 0%, oklch(35% 0.07 150 / 0.72) 55%, oklch(45% 0.1 90 / 0.55) 100%);
+}
+.light__claim .year {
+  display: block;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+.light__claim .statement {
+  font-size: clamp(1.3rem, 3vw, 2.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  max-width: 24ch;
+  margin-bottom: 1rem;
+}
+.light__claim p:last-child { font-weight: 300; max-width: 52ch; color: oklch(92% 0.02 120); }
+
+.why { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; }
+.why__card {
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 1.8rem 1.6rem;
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+.why__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
+.why__card .sprig {
+  width: 2.6rem; height: 2.6rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  margin-bottom: 1.1rem;
+}
+.why__card:nth-child(1) .sprig { background: var(--brand-tint); color: var(--brand-deep); }
+.why__card:nth-child(2) .sprig { background: var(--teal-tint); color: var(--teal-deep); }
+.why__card:nth-child(3) .sprig { background: oklch(94% 0.05 90); color: var(--gold-deep); }
+.why__card .sprig svg { width: 1.3rem; height: 1.3rem; }
+.why__card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 0.5rem; }
+.why__card p { font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); }
+@media (max-width: 62rem) { .why { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Chapter 3 · The Bloom ──────────────────────────────────── */
+.bloom__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.lotus-wrap { position: relative; }
+.lotus-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.petal { cursor: pointer; }
+.petal path {
+  fill: oklch(96.5% 0.02 90);
+  stroke: oklch(80% 0.05 85);
+  stroke-width: 1.5;
+  transition: fill 280ms var(--ease), stroke 280ms var(--ease), transform 280ms var(--ease), filter 280ms var(--ease);
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.petal:hover path, .petal:focus-visible path { fill: oklch(93% 0.06 88); stroke: var(--gold-lo); transform: scale(1.04); }
+.petal:focus-visible { outline: none; }
+.petal:focus-visible path { stroke: var(--teal); stroke-width: 3; }
+.petal.is-active path {
+  fill: url(#goldGrad);
+  stroke: var(--gold-deep);
+  transform: scale(1.07);
+  filter: drop-shadow(0 10px 18px oklch(65% 0.16 75 / 0.4));
+}
+.petal text {
+  font-family: var(--font);
+  font-size: 13.5px;
+  font-weight: 600;
+  fill: var(--ink-soft);
+  text-anchor: middle;
+  pointer-events: none;
+  transition: fill 280ms var(--ease);
+}
+.petal.is-active text, .petal:hover text { fill: var(--gold-deep); }
+.lotus-heart { cursor: pointer; }
+.lotus-heart circle {
+  fill: var(--paper);
+  stroke: var(--hairline);
+  stroke-width: 1.5;
+  transition: fill 280ms var(--ease), stroke 280ms var(--ease), filter 280ms var(--ease);
+}
+.lotus-heart:hover circle, .lotus-heart.is-active circle { fill: url(#goldGrad); stroke: var(--gold-deep); filter: drop-shadow(0 8px 16px oklch(65% 0.16 75 / 0.4)); }
+.lotus-heart:focus-visible { outline: none; }
+.lotus-heart:focus-visible circle { stroke: var(--teal); stroke-width: 3; }
+.lotus-heart text {
+  font-family: var(--font);
+  font-size: 13px; font-weight: 700;
+  fill: var(--ink-soft);
+  text-anchor: middle;
+  pointer-events: none;
+}
+.lotus-heart:hover text, .lotus-heart.is-active text { fill: oklch(30% 0.05 70); }
+.lotus-hint { text-align: center; font-size: 0.8rem; color: var(--ink-mute); margin-top: 0.4rem; }
+
+.bloom__controls { min-width: 0; }
+.bloom__controls h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; margin-bottom: 0.5rem; }
+.bloom__controls > p { font-weight: 300; color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.4rem; max-width: 40ch; }
+.bloom__search { position: relative; margin-bottom: 0.9rem; }
+.bloom__search svg {
+  position: absolute; left: 1rem; top: 50%;
+  transform: translateY(-50%);
+  width: 1.15rem; height: 1.15rem;
+  color: var(--ink-mute);
+  pointer-events: none;
+}
+.bloom__search input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0.7rem 1rem 0.7rem 2.9rem;
+  font-family: var(--font);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--hairline);
+  border-radius: 999px;
+  transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease);
+}
+.bloom__search input:hover { border-color: oklch(78% 0.05 85); }
+.bloom__search input:focus-visible { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px oklch(60% 0.115 182 / 0.2); }
+.bloom__chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.chip-btn {
+  min-height: 38px;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.78rem; font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1.5px solid var(--hairline);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease);
+}
+.chip-btn:hover { border-color: var(--gold-lo); color: var(--gold-deep); }
+.chip-btn[aria-pressed="true"] {
+  background: var(--grad-gold);
+  border-color: transparent;
+  color: oklch(28% 0.05 70);
+}
+.bloom__status {
+  margin-top: 1.1rem;
+  font-size: 0.85rem; color: var(--ink-mute);
+}
+.bloom__status .count { font-weight: 700; color: var(--brand-deep); font-variant-numeric: tabular-nums; }
+@media (max-width: 62rem) {
+  .bloom__stage { grid-template-columns: minmax(0, 1fr); }
+  .lotus-wrap { max-width: 26rem; margin-inline: auto; }
+}
+@media (max-width: 34rem) {
+  .petal text { font-size: 15px; }
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+.course {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  padding: 1.4rem 1.4rem 1.2rem;
+  overflow: clip;
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease), border-color 240ms var(--ease);
+}
+.course::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--grad-gold);
+  opacity: 0;
+  transition: opacity 240ms var(--ease);
+}
+.course:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: oklch(82% 0.05 85); }
+.course:hover::before { opacity: 1; }
+.course[hidden] { display: none; }
+.course__cat {
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 0.55rem;
+}
+.course h4 { font-size: 1rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.35rem; }
+.course__code { font-size: 0.75rem; letter-spacing: 0.08em; color: var(--ink-mute); margin-bottom: 1rem; }
+.course__link {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.83rem; font-weight: 600;
+  color: var(--brand-deep);
+  text-decoration: none;
+}
+.course__link svg { width: 0.95rem; height: 0.95rem; transition: transform 180ms var(--ease); }
+.course__link:hover { color: var(--gold-deep); }
+.course__link:hover svg { transform: translateX(3px); }
+.course-empty {
+  display: none;
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  background: var(--paper-warm);
+  border-radius: var(--r-md);
+  margin-top: 1.1rem;
+}
+.course-empty.is-visible { display: block; }
+.course-empty strong { display: block; font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem; }
+.course-empty p { font-weight: 300; color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 1.4rem; }
+@media (max-width: 62rem) { .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .course-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Chapter 4 · Tread Lightly ──────────────────────────────── */
+.tread .wrap > .tread__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.tread__media { position: relative; }
+.tread__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 45% var(--r-lg) var(--r-lg) var(--r-lg);
+  box-shadow: var(--shadow-lift);
+}
+.tread__leaf {
+  position: absolute; left: -1.4rem; top: -1.4rem;
+  width: 5rem; height: 5rem;
+  display: grid; place-items: center;
+  background: var(--paper);
+  border-radius: 50%;
+  box-shadow: var(--shadow-soft);
+  color: var(--leaf-deep);
+}
+.tread__leaf svg { width: 2.2rem; height: 2.2rem; }
+.tread__points { list-style: none; padding: 0; display: grid; gap: 1.6rem; margin-top: 2rem; }
+.tread__points li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.1rem;
+  align-items: start;
+}
+.tread__points .ico {
+  width: 2.9rem; height: 2.9rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: oklch(94% 0.04 145);
+  color: var(--leaf-deep);
+  flex: none;
+}
+.tread__points .ico svg { width: 1.35rem; height: 1.35rem; }
+.tread__points h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+.tread__points p { font-size: 0.92rem; font-weight: 300; color: var(--ink-soft); max-width: 52ch; }
+@media (max-width: 62rem) {
+  .tread .wrap > .tread__grid { grid-template-columns: minmax(0, 1fr); }
+  .tread__media { max-width: 26rem; }
+  .tread__media img { aspect-ratio: 16 / 11; border-radius: var(--r-lg); }
+}
+
+/* ── Chapter 5 · Your Turn to Rise ──────────────────────────── */
+.rise .wrap > .rise__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 4.5rem);
+  align-items: stretch;
+}
+.rise__form-card {
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  position: relative;
+  overflow: clip;
+}
+.rise__form-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--grad-gold);
+}
+.rise__form-card h3 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.rise__form-card > p { font-weight: 300; color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 1.6rem; }
+.field { margin-bottom: 1rem; }
+.field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; }
+.field input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0.65rem 1rem;
+  font-family: var(--font);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper-warm);
+  border: 1.5px solid var(--hairline);
+  border-radius: var(--r-sm);
+  transition: border-color 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease);
+}
+.field input:hover { border-color: oklch(78% 0.05 85); }
+.field input:focus-visible { outline: none; border-color: var(--teal); background: var(--paper); box-shadow: 0 0 0 4px oklch(60% 0.115 182 / 0.2); }
+.field input[aria-invalid="true"] { border-color: oklch(58% 0.2 25); background: oklch(97% 0.02 25); }
+.field .err { display: none; font-size: 0.75rem; color: oklch(50% 0.17 25); margin-top: 0.25rem; }
+.field input[aria-invalid="true"] ~ .err { display: block; }
+.form-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+.form-note { font-size: 0.72rem; color: var(--ink-mute); margin-top: 0.9rem; }
+.form-success {
+  display: none;
+  align-items: center; gap: 0.6rem;
+  background: oklch(94% 0.06 150);
+  color: oklch(35% 0.09 150);
+  font-size: 0.88rem; font-weight: 600;
+  padding: 0.9rem 1rem;
+  border-radius: var(--r-sm);
+  margin-top: 1rem;
+}
+.form-success.is-visible { display: flex; }
+@media (max-width: 40rem) { .form-row { grid-template-columns: minmax(0, 1fr); } }
+
+.rise__aside {
+  display: flex; flex-direction: column;
+  border-radius: var(--r-lg);
+  overflow: clip;
+  position: relative;
+  isolation: isolate;
+  color: var(--paper);
+  min-height: 26rem;
+}
+.rise__aside img {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.rise__aside::after {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, oklch(26% 0.015 70 / 0.15) 0%, oklch(26% 0.03 60 / 0.85) 100%);
+}
+.rise__aside-body {
+  margin-top: auto;
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+}
+.rise__aside h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+.rise__aside p { font-weight: 300; font-size: 0.95rem; color: oklch(90% 0.015 90); margin-bottom: 1.4rem; max-width: 40ch; }
+.rise__contact { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+.rise__contact .btn--gold { box-shadow: none; }
+.rise__contact .btn--line { background: transparent; border-color: oklch(100% 0 0 / 0.55); color: var(--paper); }
+.rise__contact .btn--line:hover { background: oklch(100% 0 0 / 0.14); }
+.rise__mail {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-size: 0.85rem;
+  color: oklch(88% 0.02 90);
+}
+@media (max-width: 62rem) { .rise .wrap > .rise__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── FAQ — the quiet appendix ───────────────────────────────── */
+.faq-sec { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.faq-sec .wrap { max-width: 50rem; }
+.faq-sec .chapter__head { margin-bottom: 2rem; }
+.faq__item { border-bottom: 1px solid var(--hairline); }
+.faq__item:first-of-type { border-top: 1px solid var(--hairline); }
+.faq__q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.2rem 0.3rem;
+  background: none; border: none;
+  font-size: 0.98rem; font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+  transition: color 180ms var(--ease);
+}
+.faq__q:hover { color: var(--gold-deep); }
+.faq__q .icon {
+  flex: none;
+  width: 1.9rem; height: 1.9rem;
+  display: grid; place-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--ink-soft);
+  transition: transform 280ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+}
+.faq__q .icon svg { width: 0.85rem; height: 0.85rem; }
+.faq__q[aria-expanded="true"] .icon { transform: rotate(45deg); background: var(--grad-gold); border-color: transparent; color: oklch(28% 0.05 70); }
+.faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 280ms var(--ease); }
+.faq__a > div { overflow: hidden; }
+.faq__a p { padding: 0 0.3rem 1.3rem; font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); max-width: 62ch; }
+.faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer {
+  background: oklch(24% 0.02 70);
+  color: oklch(78% 0.012 85);
+  overflow: clip;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding-block: 3.5rem 2.5rem;
+}
+.footer__brand img { height: 3.1rem; width: auto; margin-bottom: 1rem; }
+.footer__brand p { font-size: 0.85rem; font-weight: 300; max-width: 32ch; }
+.footer__lotus-line {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-top: 1.2rem;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: oklch(65% 0.16 75);
+}
+.footer__lotus-line svg { width: 1.4rem; height: 1.4rem; }
+.footer h4 { color: var(--paper); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.9rem; }
+.footer ul { list-style: none; padding: 0; display: grid; gap: 0.35rem; }
+.footer__top a {
+  color: oklch(74% 0.012 85);
+  font-size: 0.85rem; font-weight: 300;
+  text-decoration: none;
+  display: inline-block;
+  padding-block: 0.2rem;
+  transition: color 180ms var(--ease);
+}
+.footer__top a:hover { color: var(--gold-hi); }
+.footer__bottom {
+  border-top: 1px solid oklch(38% 0.015 70);
+  padding-block: 1.4rem;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1.5rem;
+  font-size: 0.72rem;
+  color: oklch(60% 0.01 80);
+}
+@media (max-width: 62rem) { .footer__top { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .footer__top { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Back to top ────────────────────────────────────────────── */
+.to-top {
+  position: fixed;
+  left: 1.4rem; bottom: 1.4rem;
+  z-index: 150;
+  width: 2.9rem; height: 2.9rem;
+  display: grid; place-items: center;
+  background: var(--grad-gold);
+  color: oklch(28% 0.05 70);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-lift);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+  transition: opacity 240ms var(--ease), transform 240ms var(--ease);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top svg { width: 1.05rem; height: 1.05rem; }
+
+/* ── Reveal ─────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 420ms var(--ease), transform 420ms var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="nav__logo" href="#top" aria-label="AIFL — Australian Institute of Flexible Learning, home">
+      <img src="https://aifl.edu.au/wp-content/uploads/2018/11/color_logo_transparent.png" alt="AIFL — Australian Institute of Flexible Learning" width="200" height="131">
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__links">
+        <li><a href="#ch-mud">Our Story</a></li>
+        <li><a href="#ch-light">First Light</a></li>
+        <li><a href="#ch-bloom">Courses</a></li>
+        <li><a href="#ch-tread">Tread Lightly</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="nav__phone" href="tel:1300854987">1300 854 987</a></li>
+        <li><a class="nav__cta" href="#ch-rise">Enquire</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Scroll progress: a stem that fills with gold as the lotus rises -->
+<div class="rail" aria-hidden="false">
+  <svg class="rail__lotus" id="rail-lotus" viewBox="0 0 48 48" aria-hidden="true">
+    <defs>
+      <linearGradient id="railGold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="oklch(85% 0.15 90)"/>
+        <stop offset="100%" stop-color="oklch(65% 0.16 75)"/>
+      </linearGradient>
+    </defs>
+    <g id="rail-petals" fill="url(#railGold)">
+      <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z"/>
+      <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z" transform="rotate(-50 24 26)"/>
+      <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z" transform="rotate(50 24 26)"/>
+    </g>
+    <path d="M10 34 Q24 28 38 34 Q24 44 10 34 Z" fill="oklch(62% 0.11 145)"/>
+  </svg>
+  <div class="rail__stem"><div class="rail__fill" id="rail-fill"></div></div>
+  <ul class="rail__dots">
+    <li><a href="#ch-mud" aria-label="Chapter 1 — The Mud"></a><span class="tip">The Mud</span></li>
+    <li><a href="#ch-light" aria-label="Chapter 2 — First Light"></a><span class="tip">First Light</span></li>
+    <li><a href="#ch-bloom" aria-label="Chapter 3 — The Bloom"></a><span class="tip">The Bloom</span></li>
+    <li><a href="#ch-tread" aria-label="Chapter 4 — Tread Lightly"></a><span class="tip">Tread Lightly</span></li>
+    <li><a href="#ch-rise" aria-label="Chapter 5 — Your Turn to Rise"></a><span class="tip">Rise</span></li>
+  </ul>
+</div>
+
+<main id="main">
+  <!-- Hero — the risen lotus -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="hero__eyebrow">Australian Institute of Flexible Learning · Est. 2005</p>
+        <h1>Taken from the mud. <span class="gold-text">Risen in gold.</span></h1>
+        <p class="hero__lede">A national institute with country roots — run by health practitioners, teaching health and community care to every corner of Australia, 100% online.</p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="#ch-bloom">Explore 15 courses</a>
+          <a class="btn btn--line" href="tel:1300854987">Call 1300 854 987</a>
+        </div>
+        <ul class="hero__facts">
+          <li><strong>2005</strong><span>established &amp; educating</span></li>
+          <li><strong>15</strong><span>courses in care &amp; business</span></li>
+          <li><strong>Aus-wide</strong><span>study from anywhere</span></li>
+          <li><strong>100%</strong><span>online &amp; self-paced</span></li>
+        </ul>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="hero__photo-frame">
+          <!-- placeholder stock imagery — replace with licensed or client photos before launch -->
+          <img class="hero__photo" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop" alt="Golden sunrise rising over a quiet green field at dawn" fetchpriority="high">
+          <div class="hero__lotus-badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="oklch(85% 0.15 90)"/>
+                  <stop offset="55%" stop-color="oklch(65% 0.16 75)"/>
+                  <stop offset="100%" stop-color="oklch(52% 0.13 70)"/>
+                </linearGradient>
+              </defs>
+              <g fill="url(#heroGold)">
+                <path d="M60 78 C47 63 44 44 60 22 C76 44 73 63 60 78 Z"/>
+                <path d="M60 78 C47 63 44 44 60 22 C76 44 73 63 60 78 Z" transform="rotate(-38 60 78)"/>
+                <path d="M60 78 C47 63 44 44 60 22 C76 44 73 63 60 78 Z" transform="rotate(38 60 78)"/>
+                <path d="M60 78 C47 63 44 44 60 22 C76 44 73 63 60 78 Z" transform="rotate(-72 60 78)"/>
+                <path d="M60 78 C47 63 44 44 60 22 C76 44 73 63 60 78 Z" transform="rotate(72 60 78)"/>
+              </g>
+              <path d="M28 92 Q60 80 92 92 Q60 110 28 92 Z" fill="oklch(62% 0.11 145)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 1 — The Mud -->
+  <section class="chapter mud" id="ch-mud" aria-labelledby="ch-mud-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <span class="chapter__ghost" aria-hidden="true">01</span>
+        <p class="chapter__kicker"><span class="n">Chapter One</span> The Mud</p>
+        <h2 id="ch-mud-h">Every lotus starts in the mud.</h2>
+        <p>Ours was a small hospital in a regional country town — and we wouldn't change a thing.</p>
+      </header>
+      <div class="mud__grid">
+        <div class="mud__media reveal">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop" alt="Tall forest trees rising through soft morning mist" loading="lazy">
+          <blockquote class="mud__quote">
+            "Taken from the mud. Risen in gold."
+            <span>The new chapter of AIFL</span>
+          </blockquote>
+        </div>
+        <div class="mud__body reveal">
+          <p><strong>AIFL was born from a small hospital in a regional country town.</strong> Not a city campus, not a corporate tower — a place where care was personal and everyone knew your name.</p>
+          <p>We are still run by health practitioners. The people who built this institute worked the wards, the clinics and the community visits first — and that hands-on heart beats through every course we teach.</p>
+          <p>New owners have taken the institute from the mud and raised it in gold: a fresh national vision built on country foundations, for an institute that was always bigger than its postcode.</p>
+          <ul class="mud__roots">
+            <li>Born in a regional country hospital — care is in our DNA</li>
+            <li>Run by practising health professionals, not administrators</li>
+            <li>Healthcare at the core, from allied health to mental health</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 2 — First Light -->
+  <section class="chapter chapter--warm light" id="ch-light" aria-labelledby="ch-light-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <span class="chapter__ghost" aria-hidden="true">02</span>
+        <p class="chapter__kicker"><span class="n">Chapter Two</span> First Light</p>
+        <h2 id="ch-light-h">We reached for the sun first.</h2>
+        <p>Long before online study was ordinary, a little country institute saw the light.</p>
+      </header>
+      <div class="light__claim reveal">
+        <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?q=80&w=1600&auto=format&fit=crop" alt="Sunlight streaming through green leaves overhead" loading="lazy">
+        <span class="year">2005</span>
+        <p class="statement">The first in Australia to deliver recognised online e-learning.</p>
+        <p>While others waited for the world to change, we changed it — taking quality health education off the campus and into every home in the country.</p>
+      </div>
+      <div class="why">
+        <article class="why__card reveal">
+          <span class="sprig" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-3.5-7-6.6-7-10a7 7 0 0 1 14 0c0 3.4-3 6.5-7 10Z"/><path d="M12 21V9"/><path d="M12 13c-1.5-1-2.5-2.5-2.5-4"/><path d="M12 15c1.5-1 2.5-2.5 2.5-4"/></svg>
+          </span>
+          <h3>Pioneers, not followers</h3>
+          <p>First in Australia to deliver recognised online e-learning — two decades of refining flexible study that actually works around real life.</p>
+        </article>
+        <article class="why__card reveal">
+          <span class="sprig" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 8.6a5.5 5.5 0 0 0-9.8-3.4l-1 1.1-1-1.1a5.5 5.5 0 0 0-9.8 3.4c0 4.5 6 8.4 10.8 11.4 4.8-3 10.8-6.9 10.8-11.4Z" transform="scale(0.9) translate(1.3 1.3)"/></svg>
+          </span>
+          <h3>Practitioners who teach</h3>
+          <p>Learn from people who have done the work — aged care, mental health, community services and allied health professionals who teach what they live.</p>
+        </article>
+        <article class="why__card reveal">
+          <span class="sprig" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+          </span>
+          <h3>Australia-wide, always</h3>
+          <p>City, coast or country — if you have an internet connection, you have a campus. Supported, self-paced study at any age, at any stage of life.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 3 — The Bloom -->
+  <section class="chapter bloom" id="ch-bloom" aria-labelledby="ch-bloom-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <span class="chapter__ghost" aria-hidden="true">03</span>
+        <p class="chapter__kicker"><span class="n">Chapter Three</span> The Bloom</p>
+        <h2 id="ch-bloom-h">Fifteen courses. Five petals. One bloom.</h2>
+        <p>Choosing a course is choosing which way you'll grow. Touch a petal — watch your path open.</p>
+      </header>
+
+      <div class="bloom__stage">
+        <div class="lotus-wrap reveal">
+          <svg class="lotus-svg" viewBox="0 0 640 430" role="group" aria-label="Course categories as lotus petals — select a petal to filter courses">
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="oklch(85% 0.15 90)"/>
+                <stop offset="55%" stop-color="oklch(65% 0.16 75)"/>
+                <stop offset="100%" stop-color="oklch(52% 0.13 70)"/>
+              </linearGradient>
+            </defs>
+            <!-- lily pad -->
+            <path d="M190 372 Q320 344 450 372 Q320 414 190 372 Z" fill="oklch(62% 0.11 145 / 0.35)"/>
+            <!-- petals -->
+            <g class="petal" data-filter="allied" tabindex="0" role="button" aria-pressed="false" aria-label="Allied Health — 5 courses">
+              <path d="M320 310 C262 236 250 148 320 52 C390 148 378 236 320 310 Z" transform="rotate(-56 320 310)"/>
+              <text x="108" y="188">Allied Health</text>
+            </g>
+            <g class="petal" data-filter="ageing" tabindex="0" role="button" aria-pressed="false" aria-label="Ageing and Individual Support — 2 courses">
+              <path d="M320 310 C262 236 250 148 320 52 C390 148 378 236 320 310 Z" transform="rotate(-28 320 310)"/>
+              <text x="196" y="98">Ageing Support</text>
+            </g>
+            <g class="petal" data-filter="mentalhealth" tabindex="0" role="button" aria-pressed="false" aria-label="Mental Health — 2 courses">
+              <path d="M320 310 C262 236 250 148 320 52 C390 148 378 236 320 310 Z"/>
+              <text x="320" y="40">Mental Health</text>
+            </g>
+            <g class="petal" data-filter="community" tabindex="0" role="button" aria-pressed="false" aria-label="Community Services — 4 courses">
+              <path d="M320 310 C262 236 250 148 320 52 C390 148 378 236 320 310 Z" transform="rotate(28 320 310)"/>
+              <text x="444" y="98">Community</text>
+            </g>
+            <g class="petal" data-filter="business" tabindex="0" role="button" aria-pressed="false" aria-label="Business — 2 courses">
+              <path d="M320 310 C262 236 250 148 320 52 C390 148 378 236 320 310 Z" transform="rotate(56 320 310)"/>
+              <text x="532" y="188">Business</text>
+            </g>
+            <!-- heart — show all -->
+            <g class="lotus-heart is-active" tabindex="0" role="button" aria-pressed="true" aria-label="Show all 15 courses">
+              <circle cx="320" cy="310" r="46"/>
+              <text x="320" y="306">All</text>
+              <text x="320" y="324">15</text>
+            </g>
+          </svg>
+          <p class="lotus-hint">Select a petal to filter — the heart shows everything.</p>
+        </div>
+
+        <div class="bloom__controls reveal">
+          <h3>Find your course</h3>
+          <p>Search by name or code, or let the lotus guide you. Every course is 100% online and self-paced.</p>
+          <div class="bloom__search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="course-search" type="search" placeholder="Try &quot;mental health&quot;, &quot;first aid&quot;, &quot;CHC43&quot;…" aria-label="Search courses by name or code" autocomplete="off">
+          </div>
+          <div class="bloom__chips" role="group" aria-label="Filter courses by category">
+            <button class="chip-btn" type="button" data-filter="all" aria-pressed="true">All 15</button>
+            <button class="chip-btn" type="button" data-filter="allied" aria-pressed="false">Allied Health</button>
+            <button class="chip-btn" type="button" data-filter="ageing" aria-pressed="false">Ageing &amp; Individual Support</button>
+            <button class="chip-btn" type="button" data-filter="mentalhealth" aria-pressed="false">Mental Health</button>
+            <button class="chip-btn" type="button" data-filter="community" aria-pressed="false">Community Services</button>
+            <button class="chip-btn" type="button" data-filter="business" aria-pressed="false">Business</button>
+          </div>
+          <p class="bloom__status" aria-live="polite">Showing <span class="count" id="course-count">15</span> of 15 courses</p>
+        </div>
+      </div>
+
+      <div class="course-grid" id="course-grid">
+        <article class="course reveal" data-cat="ageing" data-name="Certificate IV in Ageing Support CHC43015">
+          <p class="course__cat">Ageing &amp; Individual Support</p>
+          <h4>Certificate IV in Ageing Support</h4>
+          <p class="course__code">CHC43015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43015%20Certificate%20IV%20in%20Ageing%20Support">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="mentalhealth" data-name="Certificate IV in Mental Health CHC43315">
+          <p class="course__cat">Mental Health</p>
+          <h4>Certificate IV in Mental Health</h4>
+          <p class="course__code">CHC43315</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43315%20Certificate%20IV%20in%20Mental%20Health">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="ageing" data-name="Certificate III in Individual Support CHC33015">
+          <p class="course__cat">Ageing &amp; Individual Support</p>
+          <h4>Certificate III in Individual Support</h4>
+          <p class="course__code">CHC33015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC33015%20Certificate%20III%20in%20Individual%20Support">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="allied" data-name="Certificate IV in Allied Health Assistance HLT43015">
+          <p class="course__cat">Allied Health</p>
+          <h4>Certificate IV in Allied Health Assistance</h4>
+          <p class="course__code">HLT43015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT43015%20Certificate%20IV%20in%20Allied%20Health%20Assistance">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="mentalhealth" data-name="Certificate IV in Alcohol and Other Drugs CHC43215">
+          <p class="course__cat">Mental Health</p>
+          <h4>Certificate IV in Alcohol and Other Drugs</h4>
+          <p class="course__code">CHC43215</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43215%20Certificate%20IV%20in%20Alcohol%20and%20Other%20Drugs">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="community" data-name="Diploma of Community Services CHC52015">
+          <p class="course__cat">Community Services</p>
+          <h4>Diploma of Community Services</h4>
+          <p class="course__code">CHC52015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC52015%20Diploma%20of%20Community%20Services">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="community" data-name="Certificate III in Community Services CHC32015">
+          <p class="course__cat">Community Services</p>
+          <h4>Certificate III in Community Services</h4>
+          <p class="course__code">CHC32015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC32015%20Certificate%20III%20in%20Community%20Services">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="community" data-name="Certificate II in Community Services CHC22015">
+          <p class="course__cat">Community Services</p>
+          <h4>Certificate II in Community Services</h4>
+          <p class="course__code">CHC22015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC22015%20Certificate%20II%20in%20Community%20Services">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="allied" data-name="Provide First Aid HLTAID003">
+          <p class="course__cat">Allied Health</p>
+          <h4>Provide First Aid</h4>
+          <p class="course__code">HLTAID003</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID003%20Provide%20First%20Aid">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="allied" data-name="Provide Cardiopulmonary Resuscitation HLTAID001">
+          <p class="course__cat">Allied Health</p>
+          <h4>Provide Cardiopulmonary Resuscitation</h4>
+          <p class="course__code">HLTAID001</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID001%20Provide%20CPR">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="allied" data-name="Certificate III in Allied Health Assistance HLT33015">
+          <p class="course__cat">Allied Health</p>
+          <h4>Certificate III in Allied Health Assistance</h4>
+          <p class="course__code">HLT33015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT33015%20Certificate%20III%20in%20Allied%20Health%20Assistance">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="allied" data-name="Certificate II in Health Support Services HLT23215">
+          <p class="course__cat">Allied Health</p>
+          <h4>Certificate II in Health Support Services</h4>
+          <p class="course__code">HLT23215</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT23215%20Certificate%20II%20in%20Health%20Support%20Services">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="community" data-name="Certificate I in Active Volunteering CHC14015">
+          <p class="course__cat">Community Services</p>
+          <h4>Certificate I in Active Volunteering</h4>
+          <p class="course__code">CHC14015</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC14015%20Certificate%20I%20in%20Active%20Volunteering">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="business" data-name="Certificate III in Business BSB30115">
+          <p class="course__cat">Business</p>
+          <h4>Certificate III in Business</h4>
+          <p class="course__code">BSB30115</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20BSB30115%20Certificate%20III%20in%20Business">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+        <article class="course reveal" data-cat="business" data-name="Certificate III in Business Administration (Medical) BSB31115">
+          <p class="course__cat">Business</p>
+          <h4>Certificate III in Business Administration (Medical)</h4>
+          <p class="course__code">BSB31115</p>
+          <a class="course__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20BSB31115%20Certificate%20III%20in%20Business%20Administration%20(Medical)">Enquire about this course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </article>
+      </div>
+      <div class="course-empty" id="course-empty">
+        <strong>No blooms match that search.</strong>
+        <p>Try another keyword — or call 1300 854 987 and we'll help you find your path.</p>
+        <button class="btn btn--gold" id="course-reset" type="button">Show all 15 courses</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 4 — Tread Lightly -->
+  <section class="chapter chapter--warm tread" id="ch-tread" aria-labelledby="ch-tread-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <span class="chapter__ghost" aria-hidden="true">04</span>
+        <p class="chapter__kicker"><span class="n">Chapter Four</span> Tread Lightly</p>
+        <h2 id="ch-tread-h">Grow your career, <span class="gold-text">shrink your footprint.</span></h2>
+        <p>Studying online reduces your carbon footprint. It's education the way nature intended — light on the earth.</p>
+      </header>
+      <div class="tread__grid">
+        <div class="tread__media reveal">
+          <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=1600&auto=format&fit=crop" alt="Delicate green fern fronds unfurling in soft light" loading="lazy">
+          <span class="tread__leaf" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 9 13 4 20 4c0 8-4 15-13 15"/><path d="M5 19c3-6 7-9 12-11"/></svg>
+          </span>
+        </div>
+        <div class="reveal">
+          <ul class="tread__points">
+            <li>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h13l3-6h-6l-2-4H8"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg></span>
+              <div>
+                <h3>No daily commute</h3>
+                <p>Your classroom is your kitchen table. Every lesson you take online is a trip the planet never has to absorb.</p>
+              </div>
+            </li>
+            <li>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-4h4v4"/></svg></span>
+              <div>
+                <h3>No campus footprint</h3>
+                <p>No lecture halls to heat, cool and light for thousands of students — learning delivered with a fraction of the energy.</p>
+              </div>
+            </li>
+            <li>
+              <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-2 8-6 8-11V5l-8-3-8 3v6c0 5 3 9 8 11Z"/><path d="M12 8v6M9 11h6"/></svg></span>
+              <div>
+                <h3>No paper trail</h3>
+                <p>Digital materials, digital assessments, digital support — a qualification earned without a forest of printouts.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapter 5 — Your Turn to Rise -->
+  <section class="chapter rise" id="ch-rise" aria-labelledby="ch-rise-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <span class="chapter__ghost" aria-hidden="true">05</span>
+        <p class="chapter__kicker"><span class="n">Chapter Five</span> Your Turn to Rise</p>
+        <h2 id="ch-rise-h">The next bloom is <span class="gold-text">yours.</span></h2>
+        <p>Start with our free e-book, or start with a conversation. Either way — rise.</p>
+      </header>
+      <div class="rise__grid">
+        <div class="rise__form-card reveal">
+          <h3>Get the free e-book</h3>
+          <p>Discover how motivation &amp; positive thinking can help you — our gift to anyone ready for their next chapter.</p>
+          <form id="ebook-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="first-name">First name</label>
+                <input id="first-name" name="first-name" type="text" autocomplete="given-name" required>
+                <p class="err">Please enter your first name.</p>
+              </div>
+              <div class="field">
+                <label for="last-name">Last name</label>
+                <input id="last-name" name="last-name" type="text" autocomplete="family-name" required>
+                <p class="err">Please enter your last name.</p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <p class="err">Please enter a valid email address.</p>
+            </div>
+            <button class="btn btn--gold" type="submit" style="width:100%;">Send my free e-book</button>
+            <p class="form-success" id="form-success" role="status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              You're on your way — check your inbox for the e-book.
+            </p>
+            <p class="form-note">By downloading this e-book you agree to our Privacy Policy and to receiving email and other communication from us. You can opt out at any time.</p>
+          </form>
+        </div>
+        <div class="rise__aside reveal">
+          <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1600&auto=format&fit=crop" alt="Soft pink flowers blooming upward toward the light" loading="lazy">
+          <div class="rise__aside-body">
+            <h3>Prefer to talk to a person?</h3>
+            <p>Our team are health practitioners first — call for honest advice on courses, flexibility and where study could take you.</p>
+            <div class="rise__contact">
+              <a class="btn btn--gold" href="tel:1300854987">Call 1300 854 987</a>
+              <a class="btn btn--line" href="https://aifl.edu.au/contact-us">Enquire online</a>
+            </div>
+            <a class="rise__mail" href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — the quiet appendix -->
+  <section class="faq-sec chapter--warm" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <header class="chapter__head reveal">
+        <p class="chapter__kicker"><span class="n">Appendix</span> Questions</p>
+        <h2 id="faq-h">Before you ask</h2>
+        <p>Anything else — call 1300 854 987 and ask a person.</p>
+      </header>
+      <div class="reveal">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Can I really study at my own pace?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Yes — flexible, self-paced learning is the whole reason we exist. Our model lets you juggle work, family and life while still getting ahead in your career. You study when it suits you, with full support from our team the whole way through.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Is government funding available?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Often, yes. Funded places are available through the Skills First program on eligible courses, and we also offer subsidised traineeships and VET in Schools programs. Eligibility depends on your circumstances — we check it with you during your pre-training review, before you commit to anything.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Do you help with work placement?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>We do. Courses with a practical component come with placement support — our team works with you to arrange hands-on experience in the sector you're training for, so you graduate with real workplace confidence.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Who will be teaching me?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Experienced industry practitioners — people who have worked extensively in the fields they teach, from aged care and mental health to community services and business. You're learning from people who've done the job, not just read about it.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            How do I enrol?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Start with an enquiry — call 1300 854 987 or use the contact form. We'll walk you through a pre-training review to confirm the course fits your goals, sort out funding and your USI, and get you started. No obligation until you're ready.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="https://aifl.edu.au/wp-content/uploads/2018/07/white_logo_transparent-5-300x196.png" alt="AIFL — Australian Institute of Flexible Learning" width="300" height="196" loading="lazy">
+        <p>Empowering through education since 2005. Flexible health, community and business training — available throughout Australia.</p>
+        <p class="footer__lotus-line">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <g fill="oklch(65% 0.16 75)">
+              <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z"/>
+              <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z" transform="rotate(-45 24 26)"/>
+              <path d="M24 26 C19 20 18 13 24 6 C30 13 29 20 24 26 Z" transform="rotate(45 24 26)"/>
+            </g>
+            <path d="M10 34 Q24 28 38 34 Q24 44 10 34 Z" fill="oklch(62% 0.11 145)"/>
+          </svg>
+          Taken from the mud. Risen in gold.
+        </p>
+      </div>
+      <nav aria-label="Footer — chapters">
+        <h4>Chapters</h4>
+        <ul>
+          <li><a href="#ch-mud">The Mud — our story</a></li>
+          <li><a href="#ch-light">First Light — est. 2005</a></li>
+          <li><a href="#ch-bloom">The Bloom — courses</a></li>
+          <li><a href="#ch-tread">Tread Lightly — our planet</a></li>
+          <li><a href="#ch-rise">Your Turn to Rise</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — courses">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43315">Certificate IV in Mental Health</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43015">Certificate IV in Ageing Support</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC33015">Certificate III in Individual Support</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT43015">Certificate IV in Allied Health Assistance</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC52015">Diploma of Community Services</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID003">Provide First Aid</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:1300854987">1300 854 987</a></li>
+          <li><a href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Enquire online</a></li>
+          <li><a href="https://aifl.edu.au/qms/login/index.php">Course Login</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Melbourne, Victoria</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>J J Endeavours Pty Ltd © 2026. All rights reserved.</span>
+      <span>Australian Institute of Flexible Learning · Melbourne, Victoria</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ── Image fallback: swap any failed photo for a verified backup so the page never shows a void ── */
+const IMG_BACKUP = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop";
+document.querySelectorAll("img").forEach((img) => {
+  img.addEventListener("error", () => { if (img.src !== IMG_BACKUP) img.src = IMG_BACKUP; });
+  if (img.complete && img.naturalWidth === 0 && img.src !== IMG_BACKUP) img.src = IMG_BACKUP;
+});
+
+/* ── Mobile menu ─────────────────────────────────────────── */
+const navToggle = document.querySelector('.nav__toggle');
+const navMenu = document.getElementById('nav-menu');
+navToggle.addEventListener('click', () => {
+  const open = navToggle.getAttribute('aria-expanded') === 'true';
+  navToggle.setAttribute('aria-expanded', String(!open));
+  navMenu.classList.toggle('is-open', !open);
+});
+navMenu.addEventListener('click', (e) => {
+  if (e.target.closest('a')) {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('is-open');
+  }
+});
+
+/* ── Nav shadow + back-to-top + rail stem ────────────────── */
+const nav = document.querySelector('.nav');
+const toTop = document.getElementById('to-top');
+const railFill = document.getElementById('rail-fill');
+const railLotus = document.getElementById('rail-lotus');
+
+function onScroll() {
+  nav.classList.toggle('is-scrolled', scrollY > 8);
+  toTop.classList.toggle('is-visible', scrollY > 900);
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const p = max > 0 ? Math.min(scrollY / max, 1) : 0;
+  railFill.style.transform = 'scaleY(' + p + ')';
+  railLotus.style.transform = prefersReduced ? 'none' : 'rotate(' + (p * 360) + 'deg)';
+}
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' }));
+
+/* ── Rail dots — mark the current chapter ────────────────── */
+const railDots = document.querySelectorAll('.rail__dots a');
+const chapterIO = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    railDots.forEach((dot) => {
+      dot.setAttribute('aria-current', String(dot.getAttribute('href') === '#' + entry.target.id));
+    });
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+document.querySelectorAll('.chapter').forEach((sec) => chapterIO.observe(sec));
+
+/* ── The Bloom — petal filtering + live search ───────────── */
+const petals = document.querySelectorAll('.petal');
+const heart = document.querySelector('.lotus-heart');
+const chips = document.querySelectorAll('.chip-btn');
+const cards = document.querySelectorAll('.course');
+const total = cards.length;
+const searchInput = document.getElementById('course-search');
+const courseCount = document.getElementById('course-count');
+const emptyState = document.getElementById('course-empty');
+const emptyReset = document.getElementById('course-reset');
+const state = { cat: 'all', q: '' };
+
+function applyFilter() {
+  let visible = 0;
+  cards.forEach((card) => {
+    const matchCat = state.cat === 'all' || card.dataset.cat === state.cat;
+    const matchQ = state.q === '' || card.dataset.name.toLowerCase().includes(state.q);
+    const show = matchCat && matchQ;
+    card.hidden = !show;
+    if (show) visible++;
+  });
+  courseCount.textContent = visible;
+  emptyState.classList.toggle('is-visible', visible === 0);
+}
+
+function setFilter(cat) {
+  state.cat = cat;
+  petals.forEach((p) => {
+    const active = p.dataset.filter === cat;
+    p.classList.toggle('is-active', active);
+    p.setAttribute('aria-pressed', String(active));
+  });
+  const heartActive = cat === 'all';
+  heart.classList.toggle('is-active', heartActive);
+  heart.setAttribute('aria-pressed', String(heartActive));
+  chips.forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.filter === cat)));
+  applyFilter();
+}
+
+petals.forEach((petal) => {
+  petal.addEventListener('click', () => setFilter(petal.dataset.filter));
+  petal.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setFilter(petal.dataset.filter);
+    }
+  });
+});
+heart.addEventListener('click', () => setFilter('all'));
+heart.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    setFilter('all');
+  }
+});
+chips.forEach((chip) => chip.addEventListener('click', () => setFilter(chip.dataset.filter)));
+
+searchInput.addEventListener('input', () => {
+  state.q = searchInput.value.trim().toLowerCase();
+  applyFilter();
+});
+emptyReset.addEventListener('click', () => {
+  state.q = '';
+  searchInput.value = '';
+  setFilter('all');
+  searchInput.focus();
+});
+
+/* ── FAQ — one open at a time ────────────────────────────── */
+document.querySelectorAll('.faq__item').forEach((item) => {
+  const btn = item.querySelector('.faq__q');
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq__item.is-open').forEach((other) => {
+      other.classList.remove('is-open');
+      other.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+    });
+    item.classList.toggle('is-open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
+/* ── E-book form validation ──────────────────────────────── */
+const form = document.getElementById('ebook-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+  form.querySelectorAll('input[required]').forEach((input) => {
+    const ok = input.checkValidity();
+    input.setAttribute('aria-invalid', String(!ok));
+    if (!ok) valid = false;
+  });
+  if (valid) {
+    document.getElementById('form-success').classList.add('is-visible');
+    form.querySelector('button[type="submit"]').disabled = true;
+  }
+});
+form.querySelectorAll('input[required]').forEach((input) => {
+  input.addEventListener('input', () => input.setAttribute('aria-invalid', 'false'));
+});
+
+/* ── Reveal on scroll ────────────────────────────────────── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

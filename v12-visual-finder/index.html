@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIFL 2026 — Visual Finder</title>
+<meta name="description" content="Find the course for you — flexible, supported training in health and community services. Study anywhere in Australia with AIFL, established 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Hallmark · variation: v12-visual-finder · macrostructure: visual-first · theme: image-led concept (white bg, Poppins, orange+teal, placeholder stock) */
+:root {
+  --color-white: oklch(100% 0 0);
+  --color-mist: oklch(97.8% 0.004 90);
+  --color-ink: oklch(24% 0.012 55);
+  --color-ink-soft: oklch(42% 0.014 55);
+  --color-ink-mute: oklch(58% 0.01 60);
+  --color-rule: oklch(91.5% 0.008 85);
+  --color-brand: oklch(72% 0.16 56);
+  --color-brand-deep: oklch(54% 0.15 49);
+  --color-brand-tint: oklch(95% 0.03 80);
+  --color-teal: oklch(60% 0.115 182);
+  --color-teal-deep: oklch(45% 0.1 182);
+  --color-teal-tint: oklch(94% 0.035 178);
+  --font-body: "Poppins", system-ui, sans-serif;
+  --text-hero: clamp(2.3rem, 5.2vw, 3.9rem);
+  --text-2xl: clamp(1.7rem, 3.2vw, 2.4rem);
+  --text-xl: clamp(1.15rem, 2vw, 1.3rem);
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6.5rem;
+  --r-sm: 0.5rem;
+  --r-md: 0.875rem;
+  --r-lg: 1.25rem;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 280ms;
+  --shadow-card: 0 1px 2px oklch(24% 0.012 55 / 0.04), 0 12px 32px oklch(24% 0.012 55 / 0.07);
+  --shadow-lift: 0 2px 6px oklch(24% 0.012 55 / 0.06), 0 24px 56px oklch(24% 0.012 55 / 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-style: normal; line-height: 1.12; letter-spacing: -0.02em; overflow-wrap: anywhere; min-width: 0; }
+a { color: var(--color-teal-deep); text-underline-offset: 0.18em; }
+button { font-family: var(--font-body); }
+
+:focus-visible { outline: 3px solid var(--color-teal); outline-offset: 2px; border-radius: 3px; }
+.skip {
+  position: absolute; top: 0; left: var(--space-md); z-index: 300;
+  transform: translateY(-120%);
+  background: var(--color-ink); color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm); text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.skip:focus-visible { transform: translateY(0); }
+
+.wrap { max-width: 74rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2rem); }
+.section { padding-block: clamp(3.5rem, 8vw, var(--space-3xl)); }
+.section--mist { background: var(--color-mist); }
+
+/* ── Nav — white, minimal ────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--color-white);
+  transition: box-shadow var(--dur-med) var(--ease-out);
+}
+.nav.is-scrolled { box-shadow: 0 1px 0 var(--color-rule), 0 12px 32px oklch(24% 0.012 55 / 0.06); }
+.nav .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-lg);
+  min-height: 5rem;
+}
+.nav__logo { display: inline-flex; align-items: center; flex: none; }
+.nav__logo img { height: 3rem; width: auto; }
+.nav__links { display: flex; align-items: center; gap: 0.125rem; list-style: none; padding: 0; }
+.nav__links a {
+  display: inline-flex; align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm); font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.nav__links a:hover { color: var(--color-ink); background: var(--color-mist); }
+.nav__phone {
+  font-weight: 600 !important;
+  color: var(--color-ink) !important;
+}
+.nav__cta {
+  background: var(--color-teal);
+  color: var(--color-white) !important;
+  font-weight: 600 !important;
+  padding: var(--space-sm) var(--space-lg) !important;
+  border-radius: var(--r-sm) !important;
+  transition: background var(--dur-fast) var(--ease-out) !important;
+}
+.nav__cta:hover { background: var(--color-teal-deep) !important; }
+.nav__toggle {
+  display: none;
+  align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  background: none; border: 1px solid var(--color-rule); border-radius: var(--r-sm);
+  cursor: pointer;
+}
+.nav__toggle svg { width: 1.2rem; height: 1.2rem; stroke: var(--color-ink); }
+.nav__toggle .icon-close { display: none; }
+.nav__toggle[aria-expanded="true"] .icon-open { display: none; }
+.nav__toggle[aria-expanded="true"] .icon-close { display: block; }
+@media (max-width: 64rem) {
+  .nav__toggle { display: inline-flex; }
+  .nav__menu {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-rule);
+    box-shadow: var(--shadow-lift);
+    padding: var(--space-md) clamp(1.25rem, 4vw, 2rem) var(--space-lg);
+  }
+  .nav__menu.is-open { display: block; }
+  .nav__links { flex-direction: column; align-items: stretch; gap: 0.125rem; }
+  .nav__links a { padding: var(--space-md); min-height: 44px; }
+  .nav__cta { text-align: center; margin-top: var(--space-sm); }
+}
+
+/* ── Finder hero — full-width photo band + white search card ── */
+.finder {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: clamp(36rem, 92vh, 48rem);
+  isolation: isolate;
+  overflow: clip;
+}
+.finder__bg {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.finder__scrim {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, oklch(24% 0.012 55 / 0.55) 0%, oklch(24% 0.012 55 / 0.35) 45%, oklch(24% 0.012 55 / 0.6) 100%);
+}
+.finder .wrap {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  padding-block: clamp(4rem, 9vw, 6rem);
+}
+.finder__eyebrow {
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  font-size: var(--text-sm); font-weight: 600;
+  color: var(--color-white);
+  text-shadow: 0 1px 8px oklch(24% 0.012 55 / 0.5);
+  margin-bottom: var(--space-lg);
+}
+.finder__eyebrow::before { content: ""; width: 2rem; height: 2px; background: var(--color-brand); }
+.finder__card {
+  width: min(100%, 42rem);
+  background: var(--color-white);
+  border-radius: var(--r-lg);
+  box-shadow: 0 8px 24px oklch(24% 0.012 55 / 0.18), 0 32px 72px oklch(24% 0.012 55 / 0.28);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  text-align: center;
+}
+.finder__card h1 {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: var(--space-md);
+}
+.finder__card h1 .accent { color: var(--color-brand-deep); }
+.finder__lede {
+  font-size: var(--text-xl); font-weight: 300;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  max-width: 30rem;
+  margin: 0 auto var(--space-xl);
+}
+.finder__search {
+  position: relative;
+  margin-bottom: var(--space-md);
+}
+.finder__search svg {
+  position: absolute;
+  left: var(--space-md); top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem; height: 1.25rem;
+  color: var(--color-ink-mute);
+  pointer-events: none;
+}
+.finder__search input {
+  width: 100%;
+  min-height: 60px;
+  padding: var(--space-sm) var(--space-md) var(--space-sm) 3rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--color-ink);
+  background: var(--color-mist);
+  border: 1.5px solid var(--color-rule);
+  border-radius: var(--r-md);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.finder__search input:hover { border-color: oklch(78% 0.015 80); }
+.finder__search input:focus-visible {
+  outline: none;
+  border-color: var(--color-teal);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px oklch(60% 0.115 182 / 0.22);
+}
+.finder__meta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: var(--space-xs) var(--space-lg);
+  font-size: var(--text-sm); color: var(--color-ink-mute);
+}
+.finder__meta .count { font-weight: 600; color: var(--color-teal-deep); font-variant-numeric: tabular-nums; }
+.finder__or {
+  margin-top: var(--space-lg);
+  display: inline-flex; align-items: center; gap: var(--space-sm);
+  font-size: var(--text-sm); font-weight: 500;
+  color: var(--color-white);
+  text-decoration: none;
+  text-shadow: 0 1px 8px oklch(24% 0.012 55 / 0.5);
+}
+.finder__or svg { width: 1rem; height: 1rem; animation: nudge 1.8s var(--ease-out) infinite; }
+@keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+/* ── Category tiles — choosing a path ───────────────────────── */
+.tiles-head { text-align: center; max-width: 40rem; margin-inline: auto; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.tiles-head h2 { font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-sm); }
+.tiles-head p { color: var(--color-ink-soft); font-weight: 300; }
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+.tile {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-md);
+  overflow: clip;
+  cursor: pointer;
+  aspect-ratio: 3 / 4.2;
+  background: var(--color-ink);
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+.tile img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease-out), opacity var(--dur-med) var(--ease-out);
+}
+.tile::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, oklch(24% 0.012 55 / 0) 35%, oklch(24% 0.012 55 / 0.82) 100%);
+  transition: background var(--dur-med) var(--ease-out);
+}
+.tile:hover, .tile:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.tile:hover img, .tile:focus-visible img { transform: scale(1.07); }
+.tile[aria-pressed="true"] { outline: 3px solid var(--color-brand); outline-offset: 3px; }
+.tile[aria-pressed="true"]::after {
+  background: linear-gradient(180deg, oklch(54% 0.15 49 / 0.25) 0%, oklch(24% 0.012 55 / 0.85) 100%);
+}
+.tile__label {
+  position: absolute; left: var(--space-md); right: var(--space-md); bottom: var(--space-md);
+  z-index: 1;
+  color: var(--color-white);
+}
+.tile__label strong {
+  display: block;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0.15rem;
+}
+.tile__label span {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: var(--text-xs); font-weight: 500;
+  color: oklch(92% 0.02 85);
+}
+.tile__label span svg { width: 0.85rem; height: 0.85rem; transition: transform var(--dur-fast) var(--ease-out); }
+.tile:hover .tile__label span svg { transform: translateX(3px); }
+.tile__tick {
+  position: absolute; top: var(--space-sm); right: var(--space-sm); z-index: 1;
+  width: 1.75rem; height: 1.75rem;
+  display: grid; place-items: center;
+  background: var(--color-brand);
+  color: var(--color-ink);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.tile__tick svg { width: 0.95rem; height: 0.95rem; }
+.tile[aria-pressed="true"] .tile__tick { opacity: 1; transform: scale(1); }
+@media (max-width: 64rem) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tile { aspect-ratio: 4 / 4.5; } }
+@media (max-width: 40rem) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tile { aspect-ratio: 4 / 4.2; } }
+
+/* ── Courses ─────────────────────────────────────────────────── */
+.courses-head {
+  display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between;
+  gap: var(--space-md) var(--space-xl);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.courses-head > div { max-width: 34rem; }
+.courses-head h2 { font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-sm); }
+.courses-head p { color: var(--color-ink-soft); font-weight: 300; }
+.courses-status {
+  display: flex; align-items: center; gap: var(--space-md);
+  font-size: var(--text-sm); color: var(--color-ink-mute);
+}
+.courses-status .count { font-weight: 600; color: var(--color-teal-deep); font-variant-numeric: tabular-nums; }
+.courses-reset {
+  display: none;
+  min-height: 40px;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--text-sm); font-weight: 600;
+  color: var(--color-brand-deep);
+  background: var(--color-brand-tint);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.courses-reset:hover { background: oklch(91% 0.05 75); }
+.courses-reset.is-visible { display: inline-flex; align-items: center; }
+
+.course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); }
+.course-card {
+  display: flex; flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--r-md);
+  overflow: clip;
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out), border-color var(--dur-med) var(--ease-out);
+}
+.course-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); border-color: oklch(82% 0.03 75); }
+.course-card[hidden] { display: none; }
+.course-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: clip;
+  background: var(--color-mist);
+}
+.course-card__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease-out);
+}
+.course-card:hover .course-card__media img { transform: scale(1.05); }
+.course-card__cat {
+  position: absolute; left: var(--space-md); bottom: var(--space-md);
+  font-size: var(--text-xs); font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--color-white);
+  background: oklch(24% 0.012 55 / 0.72);
+  backdrop-filter: blur(4px);
+  padding: 0.3rem var(--space-sm);
+  border-radius: 999px;
+}
+.course-card__body {
+  display: flex; flex-direction: column; flex: 1;
+  padding: var(--space-lg);
+}
+.course-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: var(--space-xs); }
+.course-card__code { font-size: var(--text-xs); color: var(--color-ink-mute); letter-spacing: 0.06em; margin-bottom: var(--space-md); }
+.course-card__meta { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-bottom: var(--space-md); }
+.chip {
+  font-size: var(--text-xs); font-weight: 500;
+  padding: 0.2rem var(--space-sm);
+  border-radius: 999px;
+  background: var(--color-mist);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+.chip--funded { background: var(--color-brand-tint); border-color: transparent; color: var(--color-brand-deep); }
+.course-card__link {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: var(--space-xs);
+  font-size: var(--text-sm); font-weight: 600;
+  color: var(--color-teal-deep);
+  text-decoration: none;
+  padding-top: var(--space-sm);
+}
+.course-card__link svg { width: 1em; height: 1em; transition: transform var(--dur-fast) var(--ease-out); }
+.course-card__link:hover { color: var(--color-brand-deep); }
+.course-card__link:hover svg { transform: translateX(3px); }
+.course-empty {
+  display: none;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-md);
+  background: var(--color-mist);
+  border-radius: var(--r-md);
+}
+.course-empty.is-visible { display: block; }
+.course-empty strong { display: block; font-size: var(--text-xl); font-weight: 600; margin-bottom: var(--space-xs); }
+.course-empty p { color: var(--color-ink-soft); font-weight: 300; margin-bottom: var(--space-lg); }
+.course-empty .btn { margin-inline: auto; }
+@media (max-width: 64rem) { .course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .course-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-sm);
+  min-height: 52px;
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--text-base); font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--r-sm);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.btn--brand { background: var(--color-brand); color: var(--color-ink); }
+.btn--brand:hover { background: var(--color-brand-deep); color: var(--color-white); box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+.btn--ghost { border-color: var(--color-rule); color: var(--color-ink); background: var(--color-white); }
+.btn--ghost:hover { border-color: var(--color-teal); color: var(--color-teal-deep); }
+.btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+/* ── Facts — horizontal strip on photo band ──────────────────── */
+.facts {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: var(--color-white);
+}
+.facts__bg {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.facts__scrim {
+  position: absolute; inset: 0; z-index: -1;
+  background: oklch(24% 0.012 55 / 0.72);
+}
+.facts .wrap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg);
+  padding-block: clamp(3rem, 7vw, 5rem);
+}
+.fact { position: relative; }
+.fact + .fact::before {
+  content: "";
+  position: absolute; left: calc(-1 * var(--space-lg) / 2); top: 15%;
+  height: 70%; width: 1px;
+  background: oklch(100% 0 0 / 0.25);
+}
+.fact .num {
+  display: block;
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-white);
+  font-variant-numeric: tabular-nums;
+}
+.fact .num .accent { color: var(--color-brand); }
+.fact .label { display: block; font-size: var(--text-sm); font-weight: 300; color: oklch(88% 0.01 85); margin-top: 0.15rem; }
+@media (max-width: 64rem) {
+  .facts .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact + .fact::before { display: none; }
+}
+
+/* ── Section headers ─────────────────────────────────────────── */
+.section-head { max-width: 44rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.section-head h2 { font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-sm); }
+.section-head p { color: var(--color-ink-soft); font-weight: 300; }
+
+/* ── Why — split with image ──────────────────────────────────── */
+.why .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.why__media { position: relative; }
+.why__media img {
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lift);
+}
+.why__media::after {
+  content: "";
+  position: absolute;
+  right: -1rem; bottom: -1rem;
+  width: 7rem; height: 7rem;
+  border-radius: var(--r-md);
+  background: var(--color-brand);
+  z-index: -1;
+}
+.why-grid { display: grid; gap: var(--space-xl); margin-top: var(--space-xl); }
+.why-item { border-top: 2px solid var(--color-brand); padding-top: var(--space-lg); }
+.why-item:nth-child(2) { border-top-color: oklch(72% 0.13 85); }
+.why-item:nth-child(3) { border-top-color: var(--color-teal); }
+.why-item h3 { font-size: var(--text-xl); font-weight: 700; margin-bottom: var(--space-xs); }
+.why-item h3 .q { color: var(--color-brand-deep); }
+.why-item p { font-size: var(--text-sm); font-weight: 300; color: var(--color-ink-soft); max-width: 52ch; }
+@media (max-width: 64rem) {
+  .why .wrap { grid-template-columns: minmax(0, 1fr); }
+  .why__media { max-width: 30rem; }
+  .why__media img { aspect-ratio: 16 / 10; }
+}
+
+/* ── Journey — steps with images ─────────────────────────────── */
+.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-lg); }
+.step {
+  background: var(--color-white);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--r-md);
+  overflow: clip;
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+.step:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
+.step__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: clip;
+  background: var(--color-mist);
+}
+.step__media img { width: 100%; height: 100%; object-fit: cover; }
+.step__num {
+  position: absolute; left: var(--space-sm); bottom: var(--space-sm);
+  display: grid; place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  font-size: var(--text-sm); font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-ink);
+  border-radius: 50%;
+  box-shadow: var(--shadow-card);
+}
+.step:last-child .step__num { background: var(--color-brand-deep); }
+.step__body { padding: var(--space-md) var(--space-md) var(--space-lg); }
+.step h3 { font-size: var(--text-base); font-weight: 600; margin-bottom: var(--space-xs); }
+.step p { font-size: var(--text-sm); font-weight: 300; color: var(--color-ink-soft); }
+@media (max-width: 64rem) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .steps { grid-template-columns: minmax(0, 1fr); } .step__media { aspect-ratio: 16 / 9; } }
+
+/* ── E-book — side image + form ──────────────────────────────── */
+.ebook { background: var(--color-teal-deep); color: oklch(94% 0.02 170); }
+.ebook .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.ebook__media img {
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: 0 24px 56px oklch(24% 0.012 55 / 0.3);
+}
+.ebook h2 { color: var(--color-white); font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-md); }
+.ebook p { font-weight: 300; max-width: 32rem; margin-bottom: var(--space-md); }
+.ebook__note { font-size: var(--text-xs); opacity: 0.72; }
+.ebook__form {
+  background: var(--color-white);
+  border-radius: var(--r-md);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-lift);
+  color: var(--color-ink);
+  margin-top: var(--space-lg);
+}
+.ebook__form h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: var(--space-lg); }
+.field { margin-bottom: var(--space-md); }
+.field label { display: block; font-size: var(--text-sm); font-weight: 500; margin-bottom: 0.25rem; }
+.field input {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background: var(--color-mist);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--r-sm);
+  transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.field input:hover { border-color: oklch(78% 0.015 80); }
+.field input:focus-visible { outline: none; border-color: var(--color-teal); box-shadow: 0 0 0 3px oklch(60% 0.115 182 / 0.22); }
+.field input[aria-invalid="true"] { border-color: oklch(58% 0.2 25); }
+.form-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-md); }
+.form-success {
+  display: none;
+  align-items: center; gap: var(--space-sm);
+  background: oklch(94% 0.06 150);
+  color: oklch(35% 0.09 150);
+  font-size: var(--text-sm); font-weight: 500;
+  padding: var(--space-md);
+  border-radius: var(--r-sm);
+  margin-top: var(--space-md);
+}
+.form-success.is-visible { display: flex; }
+@media (max-width: 64rem) {
+  .ebook .wrap { grid-template-columns: minmax(0, 1fr); }
+  .ebook__media { max-width: 28rem; }
+  .ebook__media img { aspect-ratio: 16 / 10; }
+  .form-row { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq { max-width: 48rem; }
+.faq__item { border-bottom: 1px solid var(--color-rule); }
+.faq__item:first-child { border-top: 1px solid var(--color-rule); }
+.faq__q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-md);
+  padding: var(--space-lg) var(--space-xs);
+  background: none; border: none;
+  font-size: var(--text-base); font-weight: 600;
+  color: var(--color-ink);
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.faq__q:hover { color: var(--color-brand-deep); }
+.faq__q .icon {
+  flex: none;
+  width: 2rem; height: 2rem;
+  display: grid; place-items: center;
+  border: 1px solid var(--color-rule);
+  border-radius: 50%;
+  color: var(--color-ink-soft);
+  transition: transform var(--dur-med) var(--ease-out), background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+.faq__q .icon svg { width: 0.9rem; height: 0.9rem; }
+.faq__q[aria-expanded="true"] .icon { transform: rotate(45deg); background: var(--color-brand); border-color: var(--color-brand); color: var(--color-ink); }
+.faq__a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows var(--dur-med) var(--ease-out); }
+.faq__a > div { overflow: hidden; }
+.faq__a p { padding: 0 var(--space-xs) var(--space-lg); font-size: var(--text-sm); font-weight: 300; color: var(--color-ink-soft); max-width: 62ch; }
+.faq__item.is-open .faq__a { grid-template-rows: 1fr; }
+
+/* ── CTA ─────────────────────────────────────────────────────── */
+.cta { background: var(--color-ink); color: var(--color-white); text-align: center; }
+.cta h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.025em; max-width: 20ch; margin: 0 auto var(--space-md); }
+.cta h2 .accent { color: var(--color-brand); }
+.cta p { color: oklch(80% 0.01 80); font-weight: 300; margin-bottom: var(--space-xl); }
+.cta .hero__actions { justify-content: center; margin-bottom: 0; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.cta .btn--ghost { border-color: oklch(55% 0.01 60); color: var(--color-white); background: transparent; }
+.cta .btn--ghost:hover { background: var(--color-white); border-color: var(--color-white); color: var(--color-ink); }
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer { background: var(--color-ink); color: oklch(78% 0.01 80); overflow: clip; }
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  gap: var(--space-xl);
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+.footer__brand img { height: 3.25rem; width: auto; margin-bottom: var(--space-md); }
+.footer__brand p { font-size: var(--text-sm); font-weight: 300; max-width: 30ch; }
+.footer h4 { color: var(--color-white); font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.05em; margin-bottom: var(--space-md); }
+.footer ul { list-style: none; padding: 0; display: grid; gap: var(--space-xs); }
+.footer__grid a {
+  color: oklch(76% 0.01 80);
+  font-size: var(--text-sm); font-weight: 300;
+  text-decoration: none;
+  display: inline-block;
+  padding-block: 0.25rem;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.footer__grid a:hover { color: var(--color-brand); }
+.footer__word {
+  font-size: clamp(4rem, 15vw, 13rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.78;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px oklch(42% 0.015 60);
+  user-select: none;
+  transform: translateY(0.14em);
+  transition: color 400ms var(--ease-out);
+}
+.footer__word:hover { color: oklch(34% 0.02 60); }
+.footer__bottom {
+  border-top: 1px solid oklch(40% 0.012 60);
+  padding-block: var(--space-lg);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-sm) var(--space-lg);
+  font-size: var(--text-xs);
+  color: oklch(63% 0.01 80);
+  position: relative;
+  background: var(--color-ink);
+}
+@media (max-width: 64rem) { .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .footer__grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ── Back to top ─────────────────────────────────────────────── */
+.to-top {
+  position: fixed;
+  right: var(--space-lg); bottom: var(--space-lg);
+  z-index: 90;
+  width: 2.9rem; height: 2.9rem;
+  display: grid; place-items: center;
+  background: var(--color-ink);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-lift);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-out), transform var(--dur-med) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--color-brand-deep); }
+.to-top svg { width: 1.05rem; height: 1.05rem; }
+
+/* ── Reveal ──────────────────────────────────────────────────── */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 380ms var(--ease-out), transform 380ms var(--ease-out); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 150ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="nav__logo" href="#" aria-label="AIFL — Australian Institute of Flexible Learning, home">
+      <img src="https://aifl.edu.au/wp-content/uploads/2018/11/color_logo_transparent.png" alt="AIFL — Australian Institute of Flexible Learning" width="200" height="131">
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__links">
+        <li><a href="#paths">Study areas</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#why">Why AIFL</a></li>
+        <li><a href="#journey">How it works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="nav__phone" href="tel:1300854987">1300 854 987</a></li>
+        <li><a href="https://aifl.edu.au/qms/login/index.php">Course Login</a></li>
+        <li><a class="nav__cta" href="https://aifl.edu.au/contact-us">Enquire Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+  <!-- Finder hero -->
+  <section class="finder" aria-label="Course finder">
+    <!-- placeholder stock imagery — replace with licensed or client photos before launch -->
+    <img class="finder__bg" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1600&auto=format&fit=crop" alt="University campus building with students walking past on a sunny day" fetchpriority="high">
+    <div class="finder__scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="finder__eyebrow">Educating Australia since 2005</span>
+      <div class="finder__card">
+        <h1>Find the course <span class="accent">for you.</span></h1>
+        <p class="finder__lede">Fifteen flexible, supported qualifications in health and community services — study anywhere in Australia, at your own pace.</p>
+        <div class="finder__search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="course-search" type="search" placeholder="Try &quot;mental health&quot;, &quot;first aid&quot;, &quot;CHC43&quot;…" aria-label="Search courses by name or code" autocomplete="off">
+        </div>
+        <div class="finder__meta">
+          <span><span class="count" id="finder-count">15</span> courses match</span>
+          <span>Press Enter to see results</span>
+        </div>
+      </div>
+      <a class="finder__or" href="#paths">
+        or choose your study area
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Category tiles -->
+  <section class="section" id="paths">
+    <div class="wrap">
+      <div class="tiles-head reveal">
+        <h2>Choose your path</h2>
+        <p>Five study areas. Pick one and see the courses that take you there.</p>
+      </div>
+      <div class="tiles" role="group" aria-label="Filter courses by study area">
+        <button class="tile reveal" type="button" data-filter="allied" aria-pressed="false">
+          <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Nurse in scrubs checking equipment in a bright hospital corridor" loading="lazy">
+          <span class="tile__tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="tile__label">
+            <strong>Allied Health</strong>
+            <span>5 courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
+        </button>
+        <button class="tile reveal" type="button" data-filter="ageing" aria-pressed="false">
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop" alt="Carer holding hands with an elderly person in a warm care setting" loading="lazy">
+          <span class="tile__tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="tile__label">
+            <strong>Ageing &amp; Individual Support</strong>
+            <span>2 courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
+        </button>
+        <button class="tile reveal" type="button" data-filter="mentalhealth" aria-pressed="false">
+          <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=800&auto=format&fit=crop" alt="Two people in a supportive counselling conversation at a table" loading="lazy">
+          <span class="tile__tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="tile__label">
+            <strong>Mental Health</strong>
+            <span>2 courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
+        </button>
+        <button class="tile reveal" type="button" data-filter="community" aria-pressed="false">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Community team working together around a table with laptops" loading="lazy">
+          <span class="tile__tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="tile__label">
+            <strong>Community Services</strong>
+            <span>4 courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
+        </button>
+        <button class="tile reveal" type="button" data-filter="business" aria-pressed="false">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Professional woman smiling while working at a desk in an office" loading="lazy">
+          <span class="tile__tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="tile__label">
+            <strong>Business</strong>
+            <span>2 courses <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section class="section section--mist" id="courses">
+    <div class="wrap">
+      <div class="courses-head reveal">
+        <div>
+          <h2>Your courses</h2>
+          <p>Funded places may be available through the Skills First program — enquire about eligibility.</p>
+        </div>
+        <div class="courses-status">
+          <span aria-live="polite">Showing <span class="count" id="course-count">15</span> of 15 courses</span>
+          <button class="courses-reset" id="course-reset" type="button">Clear filters</button>
+        </div>
+      </div>
+      <div class="course-grid" id="course-grid">
+        <article class="course-card reveal" data-cat="ageing" data-name="Certificate IV in Ageing Support CHC43015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop" alt="Carer supporting an elderly person, representing ageing support work" loading="lazy">
+            <p class="course-card__cat">Ageing &amp; Individual Support</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate IV in Ageing Support</h3>
+            <p class="course-card__code">CHC43015</p>
+            <div class="course-card__meta"><span class="chip chip--funded">Skills First</span><span class="chip">12 months</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43015%20Certificate%20IV%20in%20Ageing%20Support">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="mentalhealth" data-name="Certificate IV in Mental Health CHC43315">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=800&auto=format&fit=crop" alt="Supportive one-to-one conversation, representing mental health support work" loading="lazy">
+            <p class="course-card__cat">Mental Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate IV in Mental Health</h3>
+            <p class="course-card__code">CHC43315</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43315%20Certificate%20IV%20in%20Mental%20Health">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="ageing" data-name="Certificate III in Individual Support CHC33015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=800&auto=format&fit=crop" alt="Carer holding an elderly person's hands, representing individual support" loading="lazy">
+            <p class="course-card__cat">Ageing &amp; Individual Support</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate III in Individual Support</h3>
+            <p class="course-card__code">CHC33015</p>
+            <div class="course-card__meta"><span class="chip">60 weeks</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC33015%20Certificate%20III%20in%20Individual%20Support">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="allied" data-name="Certificate IV in Allied Health Assistance HLT43015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Health professional in a clinical setting, representing allied health assistance" loading="lazy">
+            <p class="course-card__cat">Allied Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate IV in Allied Health Assistance</h3>
+            <p class="course-card__code">HLT43015</p>
+            <div class="course-card__meta"><span class="chip">69 weeks</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT43015%20Certificate%20IV%20in%20Allied%20Health%20Assistance">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="mentalhealth" data-name="Certificate IV in Alcohol and Other Drugs CHC43215">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=800&auto=format&fit=crop" alt="Counsellor listening to a client, representing alcohol and other drugs support" loading="lazy">
+            <p class="course-card__cat">Mental Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate IV in Alcohol and Other Drugs</h3>
+            <p class="course-card__code">CHC43215</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43215%20Certificate%20IV%20in%20Alcohol%20and%20Other%20Drugs">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="community" data-name="Diploma of Community Services CHC52015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Community services team collaborating around a table" loading="lazy">
+            <p class="course-card__cat">Community Services</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Diploma of Community Services</h3>
+            <p class="course-card__code">CHC52015</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC52015%20Diploma%20of%20Community%20Services">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="community" data-name="Certificate III in Community Services CHC32015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Team of community workers sharing ideas over laptops" loading="lazy">
+            <p class="course-card__cat">Community Services</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate III in Community Services</h3>
+            <p class="course-card__code">CHC32015</p>
+            <div class="course-card__meta"><span class="chip chip--funded">VETis / Skills First</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC32015%20Certificate%20III%20in%20Community%20Services">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="community" data-name="Certificate II in Community Services CHC22015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Group of people working together in a community services office" loading="lazy">
+            <p class="course-card__cat">Community Services</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate II in Community Services</h3>
+            <p class="course-card__code">CHC22015</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC22015%20Certificate%20II%20in%20Community%20Services">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="allied" data-name="Provide First Aid HLTAID003">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Nurse preparing medical supplies, representing first aid training" loading="lazy">
+            <p class="course-card__cat">Allied Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Provide First Aid</h3>
+            <p class="course-card__code">HLTAID003</p>
+            <div class="course-card__meta"><span class="chip chip--funded">Featured</span><span class="chip">Short course</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID003%20Provide%20First%20Aid">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="allied" data-name="Provide Cardiopulmonary Resuscitation HLTAID001">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Health professional at work, representing CPR training" loading="lazy">
+            <p class="course-card__cat">Allied Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Provide Cardiopulmonary Resuscitation</h3>
+            <p class="course-card__code">HLTAID001</p>
+            <div class="course-card__meta"><span class="chip">Short course</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID001%20Provide%20CPR">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="allied" data-name="Certificate III in Allied Health Assistance HLT33015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Allied health worker assisting in a bright clinic" loading="lazy">
+            <p class="course-card__cat">Allied Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate III in Allied Health Assistance</h3>
+            <p class="course-card__code">HLT33015</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT33015%20Certificate%20III%20in%20Allied%20Health%20Assistance">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="allied" data-name="Certificate II in Health Support Services HLT23215">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?q=80&w=800&auto=format&fit=crop" alt="Hospital corridor with a nurse, representing health support services" loading="lazy">
+            <p class="course-card__cat">Allied Health</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate II in Health Support Services</h3>
+            <p class="course-card__code">HLT23215</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT23215%20Certificate%20II%20in%20Health%20Support%20Services">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="community" data-name="Certificate I in Active Volunteering CHC14015">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop" alt="Volunteers working together, representing active volunteering" loading="lazy">
+            <p class="course-card__cat">Community Services</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate I in Active Volunteering</h3>
+            <p class="course-card__code">CHC14015</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC14015%20Certificate%20I%20in%20Active%20Volunteering">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="business" data-name="Certificate III in Business BSB30115">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Professional working at a desk, representing business studies" loading="lazy">
+            <p class="course-card__cat">Business</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate III in Business</h3>
+            <p class="course-card__code">BSB30115</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20BSB30115%20Certificate%20III%20in%20Business">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+        <article class="course-card reveal" data-cat="business" data-name="Certificate III in Business Administration (Medical) BSB31115">
+          <div class="course-card__media">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Medical reception professional smiling at her desk" loading="lazy">
+            <p class="course-card__cat">Business</p>
+          </div>
+          <div class="course-card__body">
+            <h3>Certificate III in Business Administration (Medical)</h3>
+            <p class="course-card__code">BSB31115</p>
+            <div class="course-card__meta"><span class="chip">Self-paced</span></div>
+            <a class="course-card__link" href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20BSB31115%20Certificate%20III%20in%20Business%20Administration%20(Medical)">Explore course <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </article>
+      </div>
+      <div class="course-empty" id="course-empty">
+        <strong>No courses match that search.</strong>
+        <p>Try a different keyword — or call 1300 854 987 and we'll point you in the right direction.</p>
+        <button class="btn btn--brand" id="course-empty-reset" type="button">Show all 15 courses</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts -->
+  <section class="facts" aria-label="AIFL at a glance">
+    <img class="facts__bg" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop" alt="Students studying together with laptops at a shared table" loading="lazy">
+    <div class="facts__scrim" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="fact reveal">
+        <span class="num" data-count="2005" data-suffix="">0</span>
+        <span class="label">established — educating Australia</span>
+      </div>
+      <div class="fact reveal">
+        <span class="num" data-count="15" data-suffix="">0</span>
+        <span class="label">courses across care &amp; business</span>
+      </div>
+      <div class="fact reveal">
+        <span class="num">Aus<span class="accent">-wide</span></span>
+        <span class="label">study from anywhere in Australia</span>
+      </div>
+      <div class="fact reveal">
+        <span class="num" data-count="100" data-suffix="%">0</span>
+        <span class="label">online, flexible, self-paced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section why" id="why">
+    <div class="wrap">
+      <div class="why__media reveal">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" alt="Community members of different ages standing together outdoors, smiling" loading="lazy">
+      </div>
+      <div>
+        <div class="section-head reveal" style="margin-bottom:0;">
+          <h2>Why choose AIFL?</h2>
+          <p>Because we are passionate about educating and learning — thriving to empower through education.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-item reveal">
+            <h3><span class="q">Why?</span> Passionate, always</h3>
+            <p>Everyone deserves the opportunity to learn, upskill and excel — with flexible options so you can live your best life while improving yours and others'.</p>
+          </article>
+          <article class="why-item reveal">
+            <h3><span class="q">Who?</span> Educators since 2005</h3>
+            <p>Quality, passionate and innovative educators — training that adapts flexibly to the everyday learning needs of individuals and allied health businesses.</p>
+          </article>
+          <article class="why-item reveal">
+            <h3><span class="q">What?</span> Supported, at any age</h3>
+            <p>Learn at whatever age, wherever in life, and feel supported — Health, Community Services, Mental Health, Ageing Support, Alcohol and Other Drugs and Business, Australia-wide.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section class="section section--mist" id="journey">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>From enquiry to graduation</h2>
+        <p>Five steps, supported the whole way.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Two people shaking hands in a welcoming meeting" loading="lazy">
+            <span class="step__num" aria-hidden="true">01</span>
+          </div>
+          <div class="step__body">
+            <h3>Enquire</h3>
+            <p>Call 1300 854 987 or send an enquiry — talk to a real person.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Student group reviewing study plans together outdoors" loading="lazy">
+            <span class="step__num" aria-hidden="true">02</span>
+          </div>
+          <div class="step__body">
+            <h3>Pre-training review</h3>
+            <p>We check your goals, experience and funding eligibility.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=800&auto=format&fit=crop" alt="Student studying with books and coffee at their own pace" loading="lazy">
+            <span class="step__num" aria-hidden="true">03</span>
+          </div>
+          <div class="step__body">
+            <h3>Study flexibly</h3>
+            <p>Self-paced online learning that fits around work, family and life.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=800&auto=format&fit=crop" alt="Worker gaining hands-on experience caring for an elderly person" loading="lazy">
+            <span class="step__num" aria-hidden="true">04</span>
+          </div>
+          <div class="step__body">
+            <h3>Placement support</h3>
+            <p>We help arrange work placement — real experience, not just theory.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="step__media">
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800&auto=format&fit=crop" alt="Graduates celebrating in caps and gowns" loading="lazy">
+            <span class="step__num" aria-hidden="true">05</span>
+          </div>
+          <div class="step__body">
+            <h3>Graduate</h3>
+            <p>Finish with a qualification and the confidence to step into your career.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-book -->
+  <section class="section ebook" id="ebook">
+    <div class="wrap">
+      <div class="ebook__media reveal">
+        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=800&auto=format&fit=crop" alt="Person writing notes in a journal, planning their next step" loading="lazy">
+      </div>
+      <div class="reveal">
+        <h2>Download our free e-book</h2>
+        <p>Discover how motivation &amp; positive thinking can help you — our gift to anyone thinking about their next step.</p>
+        <form class="ebook__form" id="ebook-form" novalidate>
+          <h3>Get your free copy</h3>
+          <div class="form-row">
+            <div class="field">
+              <label for="first-name">First name</label>
+              <input id="first-name" name="first-name" type="text" autocomplete="given-name" required>
+            </div>
+            <div class="field">
+              <label for="last-name">Last name</label>
+              <input id="last-name" name="last-name" type="text" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <button class="btn btn--brand" type="submit" style="width:100%;">Send now</button>
+          <p class="form-success" id="form-success" role="status">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            You have subscribed successfully — check your inbox.
+          </p>
+        </form>
+        <p class="ebook__note" style="margin-top:1rem;">By downloading this e-book you agree to our Privacy Policy and to receiving email and other communication from us. You can opt out at any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Questions, answered</h2>
+        <p>Anything else — call 1300 854 987 and ask a person.</p>
+      </div>
+      <div class="faq reveal">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Can I really study at my own pace?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Yes — flexible, self-paced learning is the whole reason we exist. Our model lets you juggle work, family and life while still getting ahead in your career. You study when it suits you, with full support from our team the whole way through.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Is government funding available?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Often, yes. Funded places are available through the Skills First program on eligible courses, and we also offer subsidised traineeships and VET in Schools programs. Eligibility depends on your circumstances — we check it with you during your pre-training review, before you commit to anything.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Do you help with work placement?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>We do. Courses with a practical component come with placement support — our team works with you to arrange hands-on experience in the sector you're training for, so you graduate with real workplace confidence.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            Who will be teaching me?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Experienced industry practitioners — people who have worked extensively in the fields they teach, from aged care and mental health to community services and business. You're learning from people who've done the job, not just read about it.</p></div></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false">
+            How do I enrol?
+            <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </button>
+          <div class="faq__a"><div><p>Start with an enquiry — call 1300 854 987 or use the contact form. We'll walk you through a pre-training review to confirm the course fits your goals, sort out funding and your USI, and get you started. No obligation until you're ready.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="wrap reveal">
+      <h2>Start your course <span class="accent">today.</span></h2>
+      <p>Talk to a real person about funding, flexibility and where a qualification could take you.</p>
+      <div class="hero__actions">
+        <a class="btn btn--brand" href="https://aifl.edu.au/contact-us">Enquire now</a>
+        <a class="btn btn--ghost" href="tel:1300854987">1300 854 987</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="https://aifl.edu.au/wp-content/uploads/2018/07/white_logo_transparent-5-300x196.png" alt="AIFL — Australian Institute of Flexible Learning" width="300" height="196" loading="lazy">
+        <p>Empowering through education since 2005. Flexible health, community and business training — available throughout Australia.</p>
+      </div>
+      <nav aria-label="Footer — courses">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43315">Certificate IV in Mental Health</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC43015">Certificate IV in Ageing Support</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC33015">Certificate III in Individual Support</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLT43015">Certificate IV in Allied Health Assistance</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20CHC52015">Diploma of Community Services</a></li>
+          <li><a href="mailto:admin@aifl.edu.au?subject=Course%20enquiry%20—%20HLTAID003">Provide First Aid</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — student information">
+        <h4>Student Information</h4>
+        <ul>
+          <li><a href="https://aifl.edu.au/contact-us">Placement Information</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Policies &amp; Procedures</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Pre-Training Review</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Skills First Program</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Student Support Services</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">USI</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:1300854987">1300 854 987</a></li>
+          <li><a href="mailto:admin@aifl.edu.au">admin@aifl.edu.au</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Enquire online</a></li>
+          <li><a href="https://aifl.edu.au/qms/login/index.php">Course Login</a></li>
+          <li><a href="https://aifl.edu.au/contact-us">Melbourne, Victoria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="footer__word" aria-hidden="true">AIFL</div>
+  <div class="wrap">
+    <div class="footer__bottom">
+      <span>J J Endeavours Pty Ltd © 2026. All rights reserved.</span>
+      <span>Australian Institute of Flexible Learning · Melbourne, Victoria</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Mobile menu
+const toggle = document.querySelector('.nav__toggle');
+const menu = document.getElementById('nav-menu');
+toggle.addEventListener('click', () => {
+  const open = toggle.getAttribute('aria-expanded') === 'true';
+  toggle.setAttribute('aria-expanded', String(!open));
+  menu.classList.toggle('is-open', !open);
+});
+menu.addEventListener('click', (e) => {
+  if (e.target.closest('a')) {
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('is-open');
+  }
+});
+
+// Nav shadow + back-to-top
+const nav = document.querySelector('.nav');
+const toTop = document.getElementById('to-top');
+addEventListener('scroll', () => {
+  nav.classList.toggle('is-scrolled', scrollY > 8);
+  toTop.classList.toggle('is-visible', scrollY > 900);
+}, { passive: true });
+toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' }));
+
+// Counters
+const counters = document.querySelectorAll('.num[data-count]');
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    counterIO.unobserve(el);
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    if (prefersReduced) { el.textContent = target + suffix; return; }
+    const start = performance.now();
+    const dur = 1100;
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  });
+}, { threshold: 0.6 });
+counters.forEach((el) => counterIO.observe(el));
+
+// Course finder — live search + category tiles
+const tiles = document.querySelectorAll('.tile');
+const cards = document.querySelectorAll('.course-card');
+const total = cards.length;
+const emptyMsg = document.getElementById('course-empty');
+const searchInput = document.getElementById('course-search');
+const finderCount = document.getElementById('finder-count');
+const courseCount = document.getElementById('course-count');
+const resetBtn = document.getElementById('course-reset');
+const emptyResetBtn = document.getElementById('course-empty-reset');
+const coursesSection = document.getElementById('courses');
+const state = { cat: 'all', q: '' };
+
+function applyFilter() {
+  let visible = 0;
+  cards.forEach((card) => {
+    const matchCat = state.cat === 'all' || card.dataset.cat === state.cat;
+    const matchQ = state.q === '' || card.dataset.name.toLowerCase().includes(state.q);
+    const show = matchCat && matchQ;
+    card.hidden = !show;
+    if (show) visible++;
+  });
+  finderCount.textContent = visible;
+  courseCount.textContent = visible;
+  emptyMsg.classList.toggle('is-visible', visible === 0);
+  resetBtn.classList.toggle('is-visible', state.cat !== 'all' || state.q !== '');
+}
+
+function scrollToCourses() {
+  coursesSection.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+}
+
+tiles.forEach((tile) => {
+  tile.addEventListener('click', () => {
+    const filter = tile.dataset.filter;
+    const isActive = tile.getAttribute('aria-pressed') === 'true';
+    tiles.forEach((t) => t.setAttribute('aria-pressed', 'false'));
+    state.cat = isActive ? 'all' : filter;
+    if (!isActive) tile.setAttribute('aria-pressed', 'true');
+    applyFilter();
+    scrollToCourses();
+  });
+});
+
+searchInput.addEventListener('input', () => {
+  state.q = searchInput.value.trim().toLowerCase();
+  applyFilter();
+});
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    scrollToCourses();
+  }
+});
+
+function resetFilters() {
+  state.cat = 'all';
+  state.q = '';
+  searchInput.value = '';
+  tiles.forEach((t) => t.setAttribute('aria-pressed', 'false'));
+  applyFilter();
+}
+resetBtn.addEventListener('click', resetFilters);
+emptyResetBtn.addEventListener('click', () => {
+  resetFilters();
+  scrollToCourses();
+});
+
+// FAQ — one open at a time
+document.querySelectorAll('.faq__item').forEach((item) => {
+  const btn = item.querySelector('.faq__q');
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq__item.is-open').forEach((other) => {
+      other.classList.remove('is-open');
+      other.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+    });
+    item.classList.toggle('is-open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
+// E-book form
+const form = document.getElementById('ebook-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let valid = true;
+  form.querySelectorAll('input[required]').forEach((input) => {
+    const ok = input.checkValidity();
+    input.setAttribute('aria-invalid', String(!ok));
+    if (!ok) valid = false;
+  });
+  if (valid) {
+    document.getElementById('form-success').classList.add('is-visible');
+    form.querySelector('button[type="submit"]').disabled = true;
+  }
+});
+
+// Reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
