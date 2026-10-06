@@ -547,6 +547,60 @@ h1, h2, h3, h4 { font-style: normal; line-height: 1.12; font-weight: 600; overfl
 .reveal { opacity: 0; transform: translateY(1.6rem); transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out); }
 .reveal.is-in { opacity: 1; transform: none; }
 
+/* ── Mobile polish ───────────────────────────────────────────── */
+.pioneer__statement, .heritage__quote { overflow-wrap: anywhere; min-width: 0; }
+.filter-pill { min-height: 2.75rem; display: inline-flex; align-items: center; }
+.cta__phone { white-space: nowrap; }
+.footer__brand img { max-width: 100%; }
+.gallery-hint {
+  display: none; font-size: var(--text-xs); color: var(--color-ink-mute);
+  align-items: center; gap: 0.4rem;
+}
+.gallery-hint svg { width: 0.9rem; height: 0.9rem; }
+
+@media (max-width: 56rem) {
+  .nav__phone { min-height: 2.75rem; min-width: 2.75rem; justify-content: center; }
+  .hero__blob { max-height: 62svh; }
+  .hero__ring { inset: -0.9rem; }
+  .hero__lotus { left: -0.5rem; bottom: -1.9rem; }
+  .collage { min-height: 0; max-width: 34rem; display: grid; }
+  .collage__main { width: 100%; aspect-ratio: 4 / 3.2; }
+  .collage__circle { position: static; width: 52%; justify-self: end; margin-top: -20%; }
+  .collage__small { position: static; width: 44%; justify-self: start; margin-top: var(--space-sm); }
+  .sustain__photo { min-height: 26rem; }
+  .sustain__list { margin: 1.25rem; }
+  .gallery-meta { flex-wrap: wrap; }
+}
+
+@media (max-width: 48rem) {
+  .search-pill { flex: 1 1 100%; max-width: none; min-height: 2.9rem; }
+  .search-pill input { font-size: 1rem; }
+  .filters {
+    flex-wrap: nowrap; overflow-x: auto; width: 100%;
+    padding-bottom: 0.4rem; scrollbar-width: thin;
+    scrollbar-color: var(--color-sand-deep) transparent;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-pill { flex: none; }
+  .gallery {
+    scroll-padding-inline: 1.25rem;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .course-card { flex-basis: min(80vw, 20rem); }
+  .field input { font-size: 1rem; }
+}
+
+@media (max-width: 30rem) {
+  .hero__lotus { left: 0.15rem; width: 5.5rem; padding: 0.85rem; }
+  .hero__actions .btn { width: 100%; }
+}
+
+@media (pointer: coarse) {
+  .gallery-nav { display: none; }
+  .gallery-hint { display: inline-flex; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -701,6 +755,10 @@ h1, h2, h3, h4 { font-style: normal; line-height: 1.12; font-weight: 600; overfl
 
       <div class="gallery-meta reveal">
         <span class="count" aria-live="polite">Showing <strong id="course-count">15</strong> of 15 courses</span>
+        <span class="gallery-hint">
+          Swipe to browse
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
         <div class="gallery-nav">
           <button type="button" id="gallery-prev" aria-label="Scroll courses backwards">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
